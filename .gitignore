@@ -19,8 +19,7 @@ venv/
 
 # Data (raw data should not be versioned)
 
-!data/raw/.gitkeep
-!data/processed/.gitkeep
+
 
 # Models
 models/*.pkl
