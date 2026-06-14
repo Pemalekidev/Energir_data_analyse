@@ -1,0 +1,1917 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>05 - Cartographie Interactive - Reseau Electrique du Togo &#8212; Analyse des risques de panne du réseau électrique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '05_folium_map';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="06 - Dashboard Professionnel - Guide &amp; Demonstration" href="06_dash_dashboard.html" />
+    <link rel="prev" title="04 · Analyse SQL du Réseau Électrique" href="04_sql_analysis.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Analyse des risques de panne du réseau électrique - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Analyse des risques de panne du réseau électrique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenue
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_data_collection.html">01 · Collecte et Ingestion des Données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_data_cleaning.html">02 · Nettoyage Avancé des Données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_eda_visualization.html">03 · Analyse Exploratoire des Données (EDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_sql_analysis.html">04 · Analyse SQL du Réseau Électrique</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">05 - Cartographie Interactive - Reseau Electrique du Togo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_dash_dashboard.html">06 - Dashboard Professionnel - Guide &amp; Demonstration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_predictive_modeling.html">07 · Modélisation Prédictive — Machine Learning &amp; Séries Temporelles</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F05_folium_map.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/05_folium_map.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>05 - Cartographie Interactive - Reseau Electrique du Togo</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceet-smart-grid-energy-blackout-prediction">CEET Smart Grid - Energy Blackout Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordonnees-des-villes-togolaises">5.1 Coordonnees des Villes Togolaises</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregation-des-donnees-par-ville">5.2 Agregation des donnees par ville</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carte-principale-zones-a-risque">5.3 Carte Principale - Zones a Risque</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap-geographique-intensite-des-blackouts">5.4 Heatmap Geographique - Intensite des Blackouts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carte-des-surcharges-cluster-de-marqueurs">5.5 Carte des Surcharges - Cluster de Marqueurs</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cartographie-interactive-reseau-electrique-du-togo">
+<h1>05 - Cartographie Interactive - Reseau Electrique du Togo<a class="headerlink" href="#cartographie-interactive-reseau-electrique-du-togo" title="Permalink to this heading">#</a></h1>
+<section id="ceet-smart-grid-energy-blackout-prediction">
+<h2>CEET Smart Grid - Energy Blackout Prediction<a class="headerlink" href="#ceet-smart-grid-energy-blackout-prediction" title="Permalink to this heading">#</a></h2>
+<p><strong>Objectif :</strong> Visualiser geographiquement les zones a risque avec Folium.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;../src&#39;</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">folium</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">folium.plugins</span><span class="w"> </span><span class="kn">import</span> <span class="n">HeatMap</span><span class="p">,</span> <span class="n">MarkerCluster</span><span class="p">,</span> <span class="n">MiniMap</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">DATA_PROC</span><span class="p">,</span> <span class="n">FIGURES</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PROC</span> <span class="o">/</span> <span class="s1">&#39;ceet_processed.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset charge : </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset charge : (50000, 75)
+</pre></div>
+</div>
+</div>
+</div>
+<section id="coordonnees-des-villes-togolaises">
+<h3>5.1 Coordonnees des Villes Togolaises<a class="headerlink" href="#coordonnees-des-villes-togolaises" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CITY_COORDS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Lome&quot;</span><span class="p">:</span>    <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">6.1375</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.2123</span><span class="p">},</span>
+    <span class="s2">&quot;Kpalime&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">6.8999</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">0.6244</span><span class="p">},</span>
+    <span class="s2">&quot;Atakpame&quot;</span><span class="p">:{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">7.5833</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.1333</span><span class="p">},</span>
+    <span class="s2">&quot;Sokode&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">8.9833</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.1333</span><span class="p">},</span>
+    <span class="s2">&quot;Kara&quot;</span><span class="p">:</span>    <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">9.5511</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.1861</span><span class="p">},</span>
+    <span class="s2">&quot;Dapaong&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">10.8623</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">0.2061</span><span class="p">},</span>
+    <span class="s2">&quot;Tsevie&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">6.4271</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.2189</span><span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">REGION_CENTROIDS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Maritime&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">6.30</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.30</span><span class="p">},</span>
+    <span class="s2">&quot;Plateaux&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">7.20</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">0.90</span><span class="p">},</span>
+    <span class="s2">&quot;Centrale&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">8.65</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.15</span><span class="p">},</span>
+    <span class="s2">&quot;Kara&quot;</span><span class="p">:</span>     <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">9.55</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.19</span><span class="p">},</span>
+    <span class="s2">&quot;Savanes&quot;</span><span class="p">:</span>  <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">10.50</span><span class="p">,</span> <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">0.30</span><span class="p">},</span>
+    <span class="s2">&quot;Lome&quot;</span><span class="p">:</span>     <span class="p">{</span><span class="s2">&quot;lat&quot;</span><span class="p">:</span> <span class="mf">6.14</span><span class="p">,</span>  <span class="s2">&quot;lon&quot;</span><span class="p">:</span> <span class="mf">1.21</span><span class="p">},</span>
+<span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coordonnees configurees pour&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">CITY_COORDS</span><span class="p">),</span> <span class="s2">&quot;villes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coordonnees configurees pour 7 villes
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="agregation-des-donnees-par-ville">
+<h3>5.2 Agregation des donnees par ville<a class="headerlink" href="#agregation-des-donnees-par-ville" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">city_stats</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="n">n_readings</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">),</span>
+    <span class="n">blackout_rate</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;blackout&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+    <span class="n">avg_risk</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;outage_risk&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+    <span class="n">total_shedding</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;load_shedding_mw&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">),</span>
+    <span class="n">avg_load</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;total_load_mw&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+    <span class="n">overload_rate</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;overload&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">),</span>
+    <span class="n">n_blackouts</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;blackout&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">),</span>
+<span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;blackout_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;blackout_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;overload_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;overload_rate&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">CITY_COORDS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="mf">6.14</span><span class="p">))</span>
+<span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">city_stats</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">:</span> <span class="n">CITY_COORDS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="mf">1.21</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">city_stats</span><span class="p">[[</span><span class="s1">&#39;city&#39;</span><span class="p">,</span><span class="s1">&#39;n_blackouts&#39;</span><span class="p">,</span><span class="s1">&#39;blackout_pct&#39;</span><span class="p">,</span><span class="s1">&#39;avg_risk&#39;</span><span class="p">,</span><span class="s1">&#39;total_shedding&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    city  n_blackouts  blackout_pct  avg_risk  total_shedding
+Atakpame          274           3.8    94.704       103640.51
+ Dapaong          268           3.7    94.540       103042.10
+    Kara          320           4.5    94.642       101474.88
+ Kpalime          278           3.9    94.617       103829.87
+    Lome          283           4.0    94.429       101424.03
+  Sokode          265           3.8    94.657       101000.70
+  Tsevie          287           4.0    94.669       104220.37
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="carte-principale-zones-a-risque">
+<h3>5.3 Carte Principale - Zones a Risque<a class="headerlink" href="#carte-principale-zones-a-risque" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">risk_color</span><span class="p">(</span><span class="n">risk_pct</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">risk_pct</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;#E63946&#39;</span>
+    <span class="k">if</span> <span class="n">risk_pct</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;#F4A261&#39;</span>
+    <span class="k">if</span> <span class="n">risk_pct</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;#E9C46A&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;#2A9D8F&#39;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">risk_label</span><span class="p">(</span><span class="n">risk_pct</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">risk_pct</span> <span class="o">&gt;=</span> <span class="mi">75</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;CRITIQUE&#39;</span>
+    <span class="k">if</span> <span class="n">risk_pct</span> <span class="o">&gt;=</span> <span class="mi">50</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;ELEVE&#39;</span>
+    <span class="k">if</span> <span class="n">risk_pct</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">:</span> <span class="k">return</span> <span class="s1">&#39;MODERE&#39;</span>
+    <span class="k">return</span> <span class="s1">&#39;FAIBLE&#39;</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;CartoDB dark_matter&#39;</span><span class="p">)</span>
+
+<span class="n">title_html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;&lt;div style=&quot;position:fixed;top:10px;left:50%;transform:translateX(-50%);</span>
+<span class="s1">z-index:1000;background:rgba(29,53,87,0.92);border-radius:12px;padding:12px 24px;</span>
+<span class="s1">color:white;font-family:Arial;text-align:center;border:2px solid #E63946;&quot;&gt;</span>
+<span class="s1">&lt;b style=&quot;font-size:18px;&quot;&gt;CEET Smart Grid - Risque Reseau Electrique Togo&lt;/b&gt;&lt;/div&gt;&#39;&#39;&#39;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="n">title_html</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">city_stats</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">color</span>  <span class="o">=</span> <span class="n">risk_color</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;avg_risk&#39;</span><span class="p">])</span>
+    <span class="n">label</span>  <span class="o">=</span> <span class="n">risk_label</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;avg_risk&#39;</span><span class="p">])</span>
+    <span class="n">radius</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;avg_risk&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">6</span>
+
+    <span class="n">popup_html</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="s2">&quot;&lt;div style=&#39;font-family:Arial;width:220px;padding:8px;&#39;&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;h4 style=&#39;color:</span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">;margin:0;&#39;&gt;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/h4&gt;&lt;hr style=&#39;margin:4px 0;&#39;&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Risque moyen :&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;avg_risk&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">% (</span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">)&lt;br&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Taux blackout :&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;blackout_pct&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&lt;br&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Nb blackouts :&lt;/b&gt; </span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;n_blackouts&#39;</span><span class="p">])</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&lt;br&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Taux surcharge :&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;overload_pct&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">%&lt;br&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Delesage total :&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;total_shedding&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> MW&lt;br&gt;&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;Charge moy. :&lt;/b&gt; </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;avg_load&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> MW&quot;</span>
+        <span class="s2">&quot;&lt;/div&gt;&quot;</span>
+    <span class="p">)</span>
+
+    <span class="n">folium</span><span class="o">.</span><span class="n">CircleMarker</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]],</span>
+        <span class="n">radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill_color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+        <span class="n">fill_opacity</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">popup</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span><span class="n">popup_html</span><span class="p">,</span> <span class="n">max_width</span><span class="o">=</span><span class="mi">240</span><span class="p">),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - Risque: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;avg_risk&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.08</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]],</span>
+        <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">DivIcon</span><span class="p">(</span>
+            <span class="n">html</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;&lt;div style=&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;&quot;&gt;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;city&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&lt;/div&gt;&#39;</span><span class="p">,</span>
+            <span class="n">icon_size</span><span class="o">=</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
+        <span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">legend_html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;&lt;div style=&quot;position:fixed;bottom:30px;right:20px;z-index:1000;</span>
+<span class="s1">background:rgba(29,53,87,0.92);border-radius:10px;padding:12px;color:white;font-size:12px;&quot;&gt;</span>
+<span class="s1">&lt;b&gt;Niveau de Risque&lt;/b&gt;&lt;br&gt;</span>
+<span class="s1">&lt;span style=&quot;color:#E63946;&quot;&gt;&amp;#9679;&lt;/span&gt; Critique (&amp;ge;75%)&lt;br&gt;</span>
+<span class="s1">&lt;span style=&quot;color:#F4A261;&quot;&gt;&amp;#9679;&lt;/span&gt; Eleve (&amp;ge;50%)&lt;br&gt;</span>
+<span class="s1">&lt;span style=&quot;color:#E9C46A;&quot;&gt;&amp;#9679;&lt;/span&gt; Modere (&amp;ge;30%)&lt;br&gt;</span>
+<span class="s1">&lt;span style=&quot;color:#2A9D8F;&quot;&gt;&amp;#9679;&lt;/span&gt; Faible (&amp;lt;30%)&lt;/div&gt;&#39;&#39;&#39;</span>
+<span class="n">m</span><span class="o">.</span><span class="n">get_root</span><span class="p">()</span><span class="o">.</span><span class="n">html</span><span class="o">.</span><span class="n">add_child</span><span class="p">(</span><span class="n">folium</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="n">legend_html</span><span class="p">))</span>
+<span class="n">MiniMap</span><span class="p">(</span><span class="n">toggle_display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">position</span><span class="o">=</span><span class="s1">&#39;bottomleft&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">map_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../reports/figures/map_risk_zones.html&#39;</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">map_path</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Carte sauvegardee : </span><span class="si">{</span><span class="n">map_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Carte sauvegardee : ..\reports\figures\map_risk_zones.html
+</pre></div>
+</div>
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_d1964702711961cdaf7000664650de23 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    &lt;div style=&quot;position:fixed;top:10px;left:50%;transform:translateX(-50%);
+z-index:1000;background:rgba(29,53,87,0.92);border-radius:12px;padding:12px 24px;
+color:white;font-family:Arial;text-align:center;border:2px solid #E63946;&quot;&gt;
+&lt;b style=&quot;font-size:18px;&quot;&gt;CEET Smart Grid - Risque Reseau Electrique Togo&lt;/b&gt;&lt;/div&gt;
+    &lt;div style=&quot;position:fixed;bottom:30px;right:20px;z-index:1000;
+background:rgba(29,53,87,0.92);border-radius:10px;padding:12px;color:white;font-size:12px;&quot;&gt;
+&lt;b&gt;Niveau de Risque&lt;/b&gt;&lt;br&gt;
+&lt;span style=&quot;color:#E63946;&quot;&gt;&amp;#9679;&lt;/span&gt; Critique (&amp;ge;75%)&lt;br&gt;
+&lt;span style=&quot;color:#F4A261;&quot;&gt;&amp;#9679;&lt;/span&gt; Eleve (&amp;ge;50%)&lt;br&gt;
+&lt;span style=&quot;color:#E9C46A;&quot;&gt;&amp;#9679;&lt;/span&gt; Modere (&amp;ge;30%)&lt;br&gt;
+&lt;span style=&quot;color:#2A9D8F;&quot;&gt;&amp;#9679;&lt;/span&gt; Faible (&amp;lt;30%)&lt;/div&gt;
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_d1964702711961cdaf7000664650de23&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_d1964702711961cdaf7000664650de23 = L.map(
+                &quot;map_d1964702711961cdaf7000664650de23&quot;,
+                {
+                    center: [8.0, 1.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 7,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8b56c7c10e46900d40a64239aabc7497 = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_8b56c7c10e46900d40a64239aabc7497.addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var circle_marker_4cb4a2bfab7c78d06c5cf4ceb5cf1baf = L.circleMarker(
+                [7.5833, 1.1333],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#E63946&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#E63946&quot;, &quot;fillOpacity&quot;: 0.7, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 25.784, &quot;stroke&quot;: true, &quot;weight&quot;: 2}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+        var popup_f662b5ce68dcbc7e4a1b2c00121ae68c = L.popup({
+  &quot;maxWidth&quot;: 240,
+});
+
+        
+            
+                var html_20aa6c92ac5ea429d9a29ce51b5ebfc2 = $(`&lt;div id=&quot;html_20aa6c92ac5ea429d9a29ce51b5ebfc2&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:Arial;width:220px;padding:8px;&#x27;&gt;&lt;h4 style=&#x27;color:#E63946;margin:0;&#x27;&gt;Atakpame&lt;/h4&gt;&lt;hr style=&#x27;margin:4px 0;&#x27;&gt;&lt;b&gt;Risque moyen :&lt;/b&gt; 94.7% (CRITIQUE)&lt;br&gt;&lt;b&gt;Taux blackout :&lt;/b&gt; 3.80%&lt;br&gt;&lt;b&gt;Nb blackouts :&lt;/b&gt; 274&lt;br&gt;&lt;b&gt;Taux surcharge :&lt;/b&gt; 83.10%&lt;br&gt;&lt;b&gt;Delesage total :&lt;/b&gt; 103641 MW&lt;br&gt;&lt;b&gt;Charge moy. :&lt;/b&gt; 310.9 MW&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_f662b5ce68dcbc7e4a1b2c00121ae68c.setContent(html_20aa6c92ac5ea429d9a29ce51b5ebfc2);
+            
+        
+
+        circle_marker_4cb4a2bfab7c78d06c5cf4ceb5cf1baf.bindPopup(popup_f662b5ce68dcbc7e4a1b2c00121ae68c)
+        ;
+
+        
+    
+    
+            circle_marker_4cb4a2bfab7c78d06c5cf4ceb5cf1baf.bindTooltip(
+                `&lt;div&gt;
+                     Atakpame - Risque: 94.7%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_15a6b25d5ce9e0e617d28569dde655de = L.marker(
+                [7.6633000000000004, 1.1333],
+                {
+}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var div_icon_e3fea479900ced3c481352161952febb = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\&quot;\u003eAtakpame\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [80, 20],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+                marker_15a6b25d5ce9e0e617d28569dde655de.setIcon(div_icon_e3fea479900ced3c481352161952febb);
+            
+    
+            var circle_marker_ed47d90e099c32ddf07d00e26f4df2fc = L.circleMarker(
+                [10.8623, 0.2061],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#E63946&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#E63946&quot;, &quot;fillOpacity&quot;: 0.7, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 25.756666666666668, &quot;stroke&quot;: true, &quot;weight&quot;: 2}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+        var popup_2fc2c19549330374323112946831c7b4 = L.popup({
+  &quot;maxWidth&quot;: 240,
+});
+
+        
+            
+                var html_b26f8b860778c0604a7c9cf9e9a9a4de = $(`&lt;div id=&quot;html_b26f8b860778c0604a7c9cf9e9a9a4de&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:Arial;width:220px;padding:8px;&#x27;&gt;&lt;h4 style=&#x27;color:#E63946;margin:0;&#x27;&gt;Dapaong&lt;/h4&gt;&lt;hr style=&#x27;margin:4px 0;&#x27;&gt;&lt;b&gt;Risque moyen :&lt;/b&gt; 94.5% (CRITIQUE)&lt;br&gt;&lt;b&gt;Taux blackout :&lt;/b&gt; 3.70%&lt;br&gt;&lt;b&gt;Nb blackouts :&lt;/b&gt; 268&lt;br&gt;&lt;b&gt;Taux surcharge :&lt;/b&gt; 81.80%&lt;br&gt;&lt;b&gt;Delesage total :&lt;/b&gt; 103042 MW&lt;br&gt;&lt;b&gt;Charge moy. :&lt;/b&gt; 310.0 MW&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_2fc2c19549330374323112946831c7b4.setContent(html_b26f8b860778c0604a7c9cf9e9a9a4de);
+            
+        
+
+        circle_marker_ed47d90e099c32ddf07d00e26f4df2fc.bindPopup(popup_2fc2c19549330374323112946831c7b4)
+        ;
+
+        
+    
+    
+            circle_marker_ed47d90e099c32ddf07d00e26f4df2fc.bindTooltip(
+                `&lt;div&gt;
+                     Dapaong - Risque: 94.5%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_6538b034dcb8ed88d13b0a6867622242 = L.marker(
+                [10.9423, 0.2061],
+                {
+}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var div_icon_9c685294f794a454ad1782b9321c5e80 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\&quot;\u003eDapaong\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [80, 20],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+                marker_6538b034dcb8ed88d13b0a6867622242.setIcon(div_icon_9c685294f794a454ad1782b9321c5e80);
+            
+    
+            var circle_marker_6096dd8b2303d7a78954514e7dd51189 = L.circleMarker(
+                [9.5511, 1.1861],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#E63946&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#E63946&quot;, &quot;fillOpacity&quot;: 0.7, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 25.773666666666664, &quot;stroke&quot;: true, &quot;weight&quot;: 2}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+        var popup_3dad8a915375da8f54b5bc8754ecbfdc = L.popup({
+  &quot;maxWidth&quot;: 240,
+});
+
+        
+            
+                var html_3d39a01c6fdad3162c1d30052968a673 = $(`&lt;div id=&quot;html_3d39a01c6fdad3162c1d30052968a673&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:Arial;width:220px;padding:8px;&#x27;&gt;&lt;h4 style=&#x27;color:#E63946;margin:0;&#x27;&gt;Kara&lt;/h4&gt;&lt;hr style=&#x27;margin:4px 0;&#x27;&gt;&lt;b&gt;Risque moyen :&lt;/b&gt; 94.6% (CRITIQUE)&lt;br&gt;&lt;b&gt;Taux blackout :&lt;/b&gt; 4.50%&lt;br&gt;&lt;b&gt;Nb blackouts :&lt;/b&gt; 320&lt;br&gt;&lt;b&gt;Taux surcharge :&lt;/b&gt; 82.30%&lt;br&gt;&lt;b&gt;Delesage total :&lt;/b&gt; 101475 MW&lt;br&gt;&lt;b&gt;Charge moy. :&lt;/b&gt; 310.2 MW&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_3dad8a915375da8f54b5bc8754ecbfdc.setContent(html_3d39a01c6fdad3162c1d30052968a673);
+            
+        
+
+        circle_marker_6096dd8b2303d7a78954514e7dd51189.bindPopup(popup_3dad8a915375da8f54b5bc8754ecbfdc)
+        ;
+
+        
+    
+    
+            circle_marker_6096dd8b2303d7a78954514e7dd51189.bindTooltip(
+                `&lt;div&gt;
+                     Kara - Risque: 94.6%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_8dcb520db93f9f219c30b214000c1f44 = L.marker(
+                [9.6311, 1.1861],
+                {
+}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var div_icon_6652687280dfce26dc4a9ea5bf2c5b92 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\&quot;\u003eKara\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [80, 20],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+                marker_8dcb520db93f9f219c30b214000c1f44.setIcon(div_icon_6652687280dfce26dc4a9ea5bf2c5b92);
+            
+    
+            var circle_marker_1c90a6da885fc24deae2f0188b967bb9 = L.circleMarker(
+                [6.8999, 0.6244],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#E63946&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#E63946&quot;, &quot;fillOpacity&quot;: 0.7, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 25.7695, &quot;stroke&quot;: true, &quot;weight&quot;: 2}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+        var popup_edaf603e03b191590282a9cff0fc76a2 = L.popup({
+  &quot;maxWidth&quot;: 240,
+});
+
+        
+            
+                var html_72a903b87400f696e315a2a39f6f97f4 = $(`&lt;div id=&quot;html_72a903b87400f696e315a2a39f6f97f4&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:Arial;width:220px;padding:8px;&#x27;&gt;&lt;h4 style=&#x27;color:#E63946;margin:0;&#x27;&gt;Kpalime&lt;/h4&gt;&lt;hr style=&#x27;margin:4px 0;&#x27;&gt;&lt;b&gt;Risque moyen :&lt;/b&gt; 94.6% (CRITIQUE)&lt;br&gt;&lt;b&gt;Taux blackout :&lt;/b&gt; 3.90%&lt;br&gt;&lt;b&gt;Nb blackouts :&lt;/b&gt; 278&lt;br&gt;&lt;b&gt;Taux surcharge :&lt;/b&gt; 82.90%&lt;br&gt;&lt;b&gt;Delesage total :&lt;/b&gt; 103830 MW&lt;br&gt;&lt;b&gt;Charge moy. :&lt;/b&gt; 310.6 MW&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_edaf603e03b191590282a9cff0fc76a2.setContent(html_72a903b87400f696e315a2a39f6f97f4);
+            
+        
+
+        circle_marker_1c90a6da885fc24deae2f0188b967bb9.bindPopup(popup_edaf603e03b191590282a9cff0fc76a2)
+        ;
+
+        
+    
+    
+            circle_marker_1c90a6da885fc24deae2f0188b967bb9.bindTooltip(
+                `&lt;div&gt;
+                     Kpalime - Risque: 94.6%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_b8f20a343f58d957674486ce7e4ef5c9 = L.marker(
+                [6.9799, 0.6244],
+                {
+}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var div_icon_b0a41d52b9c1e234367dc2152109e2ae = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\&quot;\u003eKpalime\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [80, 20],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+                marker_b8f20a343f58d957674486ce7e4ef5c9.setIcon(div_icon_b0a41d52b9c1e234367dc2152109e2ae);
+            
+    
+            var circle_marker_71bfec8d196b4a4343dcad4e6770874d = L.circleMarker(
+                [6.1375, 1.2123],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#E63946&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#E63946&quot;, &quot;fillOpacity&quot;: 0.7, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 25.738166666666665, &quot;stroke&quot;: true, &quot;weight&quot;: 2}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+        var popup_2a41d64b3d88535a01926f77c772db91 = L.popup({
+  &quot;maxWidth&quot;: 240,
+});
+
+        
+            
+                var html_010fd7f4a02c3e9bc952e6146d970505 = $(`&lt;div id=&quot;html_010fd7f4a02c3e9bc952e6146d970505&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:Arial;width:220px;padding:8px;&#x27;&gt;&lt;h4 style=&#x27;color:#E63946;margin:0;&#x27;&gt;Lome&lt;/h4&gt;&lt;hr style=&#x27;margin:4px 0;&#x27;&gt;&lt;b&gt;Risque moyen :&lt;/b&gt; 94.4% (CRITIQUE)&lt;br&gt;&lt;b&gt;Taux blackout :&lt;/b&gt; 4.00%&lt;br&gt;&lt;b&gt;Nb blackouts :&lt;/b&gt; 283&lt;br&gt;&lt;b&gt;Taux surcharge :&lt;/b&gt; 81.80%&lt;br&gt;&lt;b&gt;Delesage total :&lt;/b&gt; 101424 MW&lt;br&gt;&lt;b&gt;Charge moy. :&lt;/b&gt; 309.1 MW&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_2a41d64b3d88535a01926f77c772db91.setContent(html_010fd7f4a02c3e9bc952e6146d970505);
+            
+        
+
+        circle_marker_71bfec8d196b4a4343dcad4e6770874d.bindPopup(popup_2a41d64b3d88535a01926f77c772db91)
+        ;
+
+        
+    
+    
+            circle_marker_71bfec8d196b4a4343dcad4e6770874d.bindTooltip(
+                `&lt;div&gt;
+                     Lome - Risque: 94.4%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_13620211e312dab374b2d0b086ff64e1 = L.marker(
+                [6.2175, 1.2123],
+                {
+}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var div_icon_5e590cadffd78bd5ef9a2fcd3087cfb4 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\&quot;\u003eLome\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [80, 20],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+                marker_13620211e312dab374b2d0b086ff64e1.setIcon(div_icon_5e590cadffd78bd5ef9a2fcd3087cfb4);
+            
+    
+            var circle_marker_43cc2f31a467cb394a5833592325866f = L.circleMarker(
+                [8.9833, 1.1333],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#E63946&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#E63946&quot;, &quot;fillOpacity&quot;: 0.7, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 25.77616666666667, &quot;stroke&quot;: true, &quot;weight&quot;: 2}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+        var popup_9ead969c423419ec1c480cc122331999 = L.popup({
+  &quot;maxWidth&quot;: 240,
+});
+
+        
+            
+                var html_c8fa36c2e785e6262f2d1d60bd14dbc3 = $(`&lt;div id=&quot;html_c8fa36c2e785e6262f2d1d60bd14dbc3&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:Arial;width:220px;padding:8px;&#x27;&gt;&lt;h4 style=&#x27;color:#E63946;margin:0;&#x27;&gt;Sokode&lt;/h4&gt;&lt;hr style=&#x27;margin:4px 0;&#x27;&gt;&lt;b&gt;Risque moyen :&lt;/b&gt; 94.7% (CRITIQUE)&lt;br&gt;&lt;b&gt;Taux blackout :&lt;/b&gt; 3.80%&lt;br&gt;&lt;b&gt;Nb blackouts :&lt;/b&gt; 265&lt;br&gt;&lt;b&gt;Taux surcharge :&lt;/b&gt; 82.50%&lt;br&gt;&lt;b&gt;Delesage total :&lt;/b&gt; 101001 MW&lt;br&gt;&lt;b&gt;Charge moy. :&lt;/b&gt; 310.4 MW&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_9ead969c423419ec1c480cc122331999.setContent(html_c8fa36c2e785e6262f2d1d60bd14dbc3);
+            
+        
+
+        circle_marker_43cc2f31a467cb394a5833592325866f.bindPopup(popup_9ead969c423419ec1c480cc122331999)
+        ;
+
+        
+    
+    
+            circle_marker_43cc2f31a467cb394a5833592325866f.bindTooltip(
+                `&lt;div&gt;
+                     Sokode - Risque: 94.7%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_4b3539e3bd1181b1683d9a276443ed3b = L.marker(
+                [9.0633, 1.1333],
+                {
+}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var div_icon_a522d7526759dfc700c62631f95db24f = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\&quot;\u003eSokode\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [80, 20],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+                marker_4b3539e3bd1181b1683d9a276443ed3b.setIcon(div_icon_a522d7526759dfc700c62631f95db24f);
+            
+    
+            var circle_marker_9c03dd0bb3deb1b0560b1f3c9c6989c9 = L.circleMarker(
+                [6.4271, 1.2189],
+                {&quot;bubblingMouseEvents&quot;: true, &quot;color&quot;: &quot;#E63946&quot;, &quot;dashArray&quot;: null, &quot;dashOffset&quot;: null, &quot;fill&quot;: true, &quot;fillColor&quot;: &quot;#E63946&quot;, &quot;fillOpacity&quot;: 0.7, &quot;fillRule&quot;: &quot;evenodd&quot;, &quot;lineCap&quot;: &quot;round&quot;, &quot;lineJoin&quot;: &quot;round&quot;, &quot;opacity&quot;: 1.0, &quot;radius&quot;: 25.778166666666664, &quot;stroke&quot;: true, &quot;weight&quot;: 2}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+        var popup_5ff07b9ea24ab5a93f5778ac14c77611 = L.popup({
+  &quot;maxWidth&quot;: 240,
+});
+
+        
+            
+                var html_2256713d40ad239986a333452602e151 = $(`&lt;div id=&quot;html_2256713d40ad239986a333452602e151&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;div style=&#x27;font-family:Arial;width:220px;padding:8px;&#x27;&gt;&lt;h4 style=&#x27;color:#E63946;margin:0;&#x27;&gt;Tsevie&lt;/h4&gt;&lt;hr style=&#x27;margin:4px 0;&#x27;&gt;&lt;b&gt;Risque moyen :&lt;/b&gt; 94.7% (CRITIQUE)&lt;br&gt;&lt;b&gt;Taux blackout :&lt;/b&gt; 4.00%&lt;br&gt;&lt;b&gt;Nb blackouts :&lt;/b&gt; 287&lt;br&gt;&lt;b&gt;Taux surcharge :&lt;/b&gt; 82.80%&lt;br&gt;&lt;b&gt;Delesage total :&lt;/b&gt; 104220 MW&lt;br&gt;&lt;b&gt;Charge moy. :&lt;/b&gt; 311.1 MW&lt;/div&gt;&lt;/div&gt;`)[0];
+                popup_5ff07b9ea24ab5a93f5778ac14c77611.setContent(html_2256713d40ad239986a333452602e151);
+            
+        
+
+        circle_marker_9c03dd0bb3deb1b0560b1f3c9c6989c9.bindPopup(popup_5ff07b9ea24ab5a93f5778ac14c77611)
+        ;
+
+        
+    
+    
+            circle_marker_9c03dd0bb3deb1b0560b1f3c9c6989c9.bindTooltip(
+                `&lt;div&gt;
+                     Tsevie - Risque: 94.7%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+            var marker_635a840e15f7b7f82330f016d9c8de34 = L.marker(
+                [6.5071, 1.2189],
+                {
+}
+            ).addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+            var div_icon_a99a6d7c246002b2874ded6a1fb16f63 = L.divIcon({
+  &quot;html&quot;: &quot;\u003cdiv style=\&quot;font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\&quot;\u003eTsevie\u003c/div\u003e&quot;,
+  &quot;iconSize&quot;: [80, 20],
+  &quot;className&quot;: &quot;empty&quot;,
+});
+        
+    
+                marker_635a840e15f7b7f82330f016d9c8de34.setIcon(div_icon_a99a6d7c246002b2874ded6a1fb16f63);
+            
+    
+            var tile_layer_a166f3a79f9547d8378f76a2155ad9c8 = L.tileLayer(
+                &quot;https://tile.openstreetmap.org/{z}/{x}/{y}.png&quot;,
+                {&quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors&quot;, &quot;detect_retina&quot;: false, &quot;max_native_zoom&quot;: 19, &quot;max_zoom&quot;: 19, &quot;min_zoom&quot;: 0, &quot;no_wrap&quot;: false, &quot;opacity&quot;: 1, &quot;subdomains&quot;: &quot;abc&quot;, &quot;tms&quot;: false}
+            );
+            var mini_map_cf72c37622a00b1b7baa3bd4465ff604 = new L.Control.MiniMap(
+                tile_layer_a166f3a79f9547d8378f76a2155ad9c8,
+                {
+  &quot;position&quot;: &quot;bottomleft&quot;,
+  &quot;width&quot;: 150,
+  &quot;height&quot;: 150,
+  &quot;collapsedWidth&quot;: 25,
+  &quot;collapsedHeight&quot;: 25,
+  &quot;zoomLevelOffset&quot;: -5,
+  &quot;centerFixed&quot;: false,
+  &quot;zoomAnimation&quot;: false,
+  &quot;toggleDisplay&quot;: true,
+  &quot;autoToggleDisplay&quot;: false,
+  &quot;minimized&quot;: false,
+}
+            );
+            map_d1964702711961cdaf7000664650de23.addControl(mini_map_cf72c37622a00b1b7baa3bd4465ff604);
+        
+    
+            tile_layer_8b56c7c10e46900d40a64239aabc7497.addTo(map_d1964702711961cdaf7000664650de23);
+        
+    
+                marker_15a6b25d5ce9e0e617d28569dde655de.setIcon(div_icon_e3fea479900ced3c481352161952febb);
+            
+    
+                marker_6538b034dcb8ed88d13b0a6867622242.setIcon(div_icon_9c685294f794a454ad1782b9321c5e80);
+            
+    
+                marker_8dcb520db93f9f219c30b214000c1f44.setIcon(div_icon_6652687280dfce26dc4a9ea5bf2c5b92);
+            
+    
+                marker_b8f20a343f58d957674486ce7e4ef5c9.setIcon(div_icon_b0a41d52b9c1e234367dc2152109e2ae);
+            
+    
+                marker_13620211e312dab374b2d0b086ff64e1.setIcon(div_icon_5e590cadffd78bd5ef9a2fcd3087cfb4);
+            
+    
+                marker_4b3539e3bd1181b1683d9a276443ed3b.setIcon(div_icon_a522d7526759dfc700c62631f95db24f);
+            
+    
+                marker_635a840e15f7b7f82330f016d9c8de34.setIcon(div_icon_a99a6d7c246002b2874ded6a1fb16f63);
+            
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+</section>
+<section id="heatmap-geographique-intensite-des-blackouts">
+<h3>5.4 Heatmap Geographique - Intensite des Blackouts<a class="headerlink" href="#heatmap-geographique-intensite-des-blackouts" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_heat</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;CartoDB dark_matter&#39;</span><span class="p">)</span>
+
+<span class="n">heat_data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">city_stats</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">weight</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;blackout_pct&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span>
+    <span class="n">n_pts</span>  <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;n_blackouts&#39;</span><span class="p">]</span> <span class="o">//</span> <span class="mi">50</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_pts</span><span class="p">):</span>
+        <span class="n">jlat</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span>
+        <span class="n">jlon</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">)</span>
+        <span class="n">heat_data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">jlat</span><span class="p">,</span> <span class="n">jlon</span><span class="p">,</span> <span class="n">weight</span><span class="p">])</span>
+
+<span class="n">HeatMap</span><span class="p">(</span>
+    <span class="n">heat_data</span><span class="p">,</span> <span class="n">min_opacity</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">max_opacity</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">blur</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">gradient</span><span class="o">=</span><span class="p">{</span><span class="mf">0.2</span><span class="p">:</span><span class="s1">&#39;#2A9D8F&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">:</span><span class="s1">&#39;#E9C46A&#39;</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">:</span><span class="s1">&#39;#F4A261&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">:</span><span class="s1">&#39;#E63946&#39;</span><span class="p">},</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m_heat</span><span class="p">)</span>
+
+<span class="n">heat_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../reports/figures/map_blackout_heatmap.html&#39;</span><span class="p">)</span>
+<span class="n">m_heat</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">heat_path</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Heatmap sauvegardee : </span><span class="si">{</span><span class="n">heat_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">m_heat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Heatmap sauvegardee : ..\reports\figures\map_blackout_heatmap.html
+</pre></div>
+</div>
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_83e68a084c2eb29f205f7279744c84d4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    &lt;script src=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_83e68a084c2eb29f205f7279744c84d4&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_83e68a084c2eb29f205f7279744c84d4 = L.map(
+                &quot;map_83e68a084c2eb29f205f7279744c84d4&quot;,
+                {
+                    center: [8.0, 1.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 7,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a1625aff6e118d3458752a9de796bd1d = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_a1625aff6e118d3458752a9de796bd1d.addTo(map_83e68a084c2eb29f205f7279744c84d4);
+        
+    
+            var heat_map_bd197ec6557dd57e75c4a138b933900c = L.heatLayer(
+                [[7.6906123127647215, 0.7887331966203641, 0.038], [7.607185423199645, 1.229079327243451, 0.038], [7.6190050632438515, 0.954170873487493, 0.038], [7.531382916879345, 1.2157025057343895, 0.038], [7.784574668890348, 1.2751967505003885, 0.038], [10.90349377996539, 0.01334356282408189, 0.037000000000000005], [10.72280273736956, 0.2059505410168128, 0.037000000000000005], [10.872104635166023, 0.1217642327243408, 0.037000000000000005], [11.279091491080436, 0.4467767577551178, 0.037000000000000005], [10.755223327921206, 0.3871135867283155, 0.037000000000000005], [9.564399226723387, 1.2520772253322443, 0.045], [9.530396198869875, 1.0015284821830188, 0.045], [9.57280640954561, 1.4203538091169081, 0.045], [9.430654045220315, 1.0699530361650458, 0.045], [9.90736873314368, 1.1108928086605012, 0.045], [9.587547222120493, 1.1488823522824188, 0.045], [6.96551104694219, 0.5635412645339032, 0.039], [7.161410296090665, 0.660447415986464, 0.039], [6.819687178353947, 0.7935007259909284, 0.039], [6.6613126564530045, 0.9273303090819252, 0.039], [6.844508221644613, 0.9055600044101607, 0.039], [6.291102954264281, 1.1218193369215208, 0.04], [6.423025073984012, 1.3315598143673073, 0.04], [5.777020608613574, 1.2411633676683822, 0.04], [6.156322342240965, 1.1439999028555776, 0.04], [6.324394217816923, 1.1546648194797924, 0.04], [9.091315998558198, 1.09386327464128, 0.038], [9.03984116041992, 1.5108454346367561, 0.038], [9.145977139212555, 1.1753590099530362, 0.038], [9.188188544423562, 1.4219319844865106, 0.038], [8.95680446004177, 1.1857297977014098, 0.038], [6.401188867658308, 1.2119880054460317, 0.04], [6.359619997879017, 1.307571854563169, 0.04], [6.32821348684547, 1.2724493495556344, 0.04], [6.525550028489643, 1.1687410916401761, 0.04], [6.335415942107755, 1.075608717943654, 0.04]],
+                {
+  &quot;minOpacity&quot;: 0.3,
+  &quot;maxZoom&quot;: 18,
+  &quot;radius&quot;: 30,
+  &quot;blur&quot;: 25,
+  &quot;gradient&quot;: {
+  0.2: &quot;#2A9D8F&quot;,
+  0.4: &quot;#E9C46A&quot;,
+  0.65: &quot;#F4A261&quot;,
+  1.0: &quot;#E63946&quot;,
+},
+  &quot;maxOpacity&quot;: 0.9,
+}
+            );
+        
+    
+            heat_map_bd197ec6557dd57e75c4a138b933900c.addTo(map_83e68a084c2eb29f205f7279744c84d4);
+        
+    
+            tile_layer_a1625aff6e118d3458752a9de796bd1d.addTo(map_83e68a084c2eb29f205f7279744c84d4);
+        
+    
+            heat_map_bd197ec6557dd57e75c4a138b933900c.addTo(map_83e68a084c2eb29f205f7279744c84d4);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+</section>
+<section id="carte-des-surcharges-cluster-de-marqueurs">
+<h3>5.5 Carte des Surcharges - Cluster de Marqueurs<a class="headerlink" href="#carte-des-surcharges-cluster-de-marqueurs" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m_ol</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span><span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">],</span> <span class="n">zoom_start</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;CartoDB positron&#39;</span><span class="p">)</span>
+<span class="n">cluster</span> <span class="o">=</span> <span class="n">MarkerCluster</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Surcharges&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m_ol</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">city_stats</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">n_overloads</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;overload_pct&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;n_readings&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_overloads</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">ic</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;overload_pct&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="k">else</span> <span class="s1">&#39;orange&#39;</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;overload_pct&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">8</span> <span class="k">else</span> <span class="s1">&#39;blue&#39;</span>
+    <span class="n">folium</span><span class="o">.</span><span class="n">Marker</span><span class="p">(</span>
+        <span class="n">location</span><span class="o">=</span><span class="p">[</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]],</span>
+        <span class="n">popup</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Popup</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;&lt;b&gt;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&lt;/b&gt;&lt;br&gt;Surcharges: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;overload_pct&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&lt;br&gt;N: </span><span class="si">{</span><span class="n">n_overloads</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">max_width</span><span class="o">=</span><span class="mi">180</span><span class="p">),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> - Surcharges: </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;overload_pct&#39;</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="n">folium</span><span class="o">.</span><span class="n">Icon</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">ic</span><span class="p">,</span> <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;bolt&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;fa&#39;</span><span class="p">),</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+
+<span class="n">folium</span><span class="o">.</span><span class="n">LayerControl</span><span class="p">()</span><span class="o">.</span><span class="n">add_to</span><span class="p">(</span><span class="n">m_ol</span><span class="p">)</span>
+<span class="n">ol_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../reports/figures/map_overload_clusters.html&#39;</span><span class="p">)</span>
+<span class="n">m_ol</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ol_path</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Carte surcharges : </span><span class="si">{</span><span class="n">ol_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cartes generees :&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="n">map_path</span><span class="p">,</span> <span class="n">heat_path</span><span class="p">,</span> <span class="n">ol_path</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">m_ol</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Carte surcharges : ..\reports\figures\map_overload_clusters.html
+
+Cartes generees :
+  map_risk_zones.html
+  map_blackout_heatmap.html
+  map_overload_clusters.html
+</pre></div>
+</div>
+<div class="output text_html"><div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -> Trust Notebook</span><iframe srcdoc="&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/&gt;
+    
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&gt;
+            &lt;style&gt;
+                #map_6cf22954859cd9f153b79cc6401bd2ba {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            &lt;/style&gt;
+
+            &lt;style&gt;html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            &lt;/style&gt;
+
+            &lt;style&gt;#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            &lt;/style&gt;
+
+            &lt;script&gt;
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            &lt;/script&gt;
+
+        
+    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+    
+            &lt;div class=&quot;folium-map&quot; id=&quot;map_6cf22954859cd9f153b79cc6401bd2ba&quot; &gt;&lt;/div&gt;
+        
+&lt;/body&gt;
+&lt;script&gt;
+    
+    
+            var map_6cf22954859cd9f153b79cc6401bd2ba = L.map(
+                &quot;map_6cf22954859cd9f153b79cc6401bd2ba&quot;,
+                {
+                    center: [8.0, 1.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 7,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_83c70ea351ea507b082006a648cfbdd4 = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 20,
+  &quot;maxNativeZoom&quot;: 20,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://www.openstreetmap.org/copyright\&quot;\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\&quot;https://carto.com/attributions\&quot;\u003eCARTO\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abcd&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_83c70ea351ea507b082006a648cfbdd4.addTo(map_6cf22954859cd9f153b79cc6401bd2ba);
+        
+    
+            var marker_cluster_c87a9eaa0c7950f2044acc63264ee99c = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_4536114a4c3b07034348e0079bdff4b1 = L.marker(
+                [7.5833, 1.1333],
+                {
+}
+            ).addTo(marker_cluster_c87a9eaa0c7950f2044acc63264ee99c);
+        
+    
+            var icon_5c256ce039543bcd5ee6ef4d591d61f5 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;bolt&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_9b3041dded21d9f328babfc8b38257ce = L.popup({
+  &quot;maxWidth&quot;: 180,
+});
+
+        
+            
+                var html_f9a25e2456f8194dcb555ba6decf6c4a = $(`&lt;div id=&quot;html_f9a25e2456f8194dcb555ba6decf6c4a&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Atakpame&lt;/b&gt;&lt;br&gt;Surcharges: 83.1%&lt;br&gt;N: 5,953&lt;/div&gt;`)[0];
+                popup_9b3041dded21d9f328babfc8b38257ce.setContent(html_f9a25e2456f8194dcb555ba6decf6c4a);
+            
+        
+
+        marker_4536114a4c3b07034348e0079bdff4b1.bindPopup(popup_9b3041dded21d9f328babfc8b38257ce)
+        ;
+
+        
+    
+    
+            marker_4536114a4c3b07034348e0079bdff4b1.bindTooltip(
+                `&lt;div&gt;
+                     Atakpame - Surcharges: 83.1%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_4536114a4c3b07034348e0079bdff4b1.setIcon(icon_5c256ce039543bcd5ee6ef4d591d61f5);
+            
+    
+            var marker_8fb31731de6423139b9eb5bf26c864a2 = L.marker(
+                [10.8623, 0.2061],
+                {
+}
+            ).addTo(marker_cluster_c87a9eaa0c7950f2044acc63264ee99c);
+        
+    
+            var icon_4e40a272355c1d6d4b0c7300b7288617 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;bolt&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_083a5425d615d1c19acbcd00355bb0eb = L.popup({
+  &quot;maxWidth&quot;: 180,
+});
+
+        
+            
+                var html_7fbf70a05acb9aa3dfbf7fa213ea7fc2 = $(`&lt;div id=&quot;html_7fbf70a05acb9aa3dfbf7fa213ea7fc2&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Dapaong&lt;/b&gt;&lt;br&gt;Surcharges: 81.8%&lt;br&gt;N: 5,937&lt;/div&gt;`)[0];
+                popup_083a5425d615d1c19acbcd00355bb0eb.setContent(html_7fbf70a05acb9aa3dfbf7fa213ea7fc2);
+            
+        
+
+        marker_8fb31731de6423139b9eb5bf26c864a2.bindPopup(popup_083a5425d615d1c19acbcd00355bb0eb)
+        ;
+
+        
+    
+    
+            marker_8fb31731de6423139b9eb5bf26c864a2.bindTooltip(
+                `&lt;div&gt;
+                     Dapaong - Surcharges: 81.8%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_8fb31731de6423139b9eb5bf26c864a2.setIcon(icon_4e40a272355c1d6d4b0c7300b7288617);
+            
+    
+            var marker_778077c27bca7e385c33292df5433aa4 = L.marker(
+                [9.5511, 1.1861],
+                {
+}
+            ).addTo(marker_cluster_c87a9eaa0c7950f2044acc63264ee99c);
+        
+    
+            var icon_ca133d900590abe89a97982e6bbf6de0 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;bolt&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_7cfd07424747aeaa8a634f6b3daadd3c = L.popup({
+  &quot;maxWidth&quot;: 180,
+});
+
+        
+            
+                var html_040f97dd0d529dc34360e20d2af37acc = $(`&lt;div id=&quot;html_040f97dd0d529dc34360e20d2af37acc&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Kara&lt;/b&gt;&lt;br&gt;Surcharges: 82.3%&lt;br&gt;N: 5,795&lt;/div&gt;`)[0];
+                popup_7cfd07424747aeaa8a634f6b3daadd3c.setContent(html_040f97dd0d529dc34360e20d2af37acc);
+            
+        
+
+        marker_778077c27bca7e385c33292df5433aa4.bindPopup(popup_7cfd07424747aeaa8a634f6b3daadd3c)
+        ;
+
+        
+    
+    
+            marker_778077c27bca7e385c33292df5433aa4.bindTooltip(
+                `&lt;div&gt;
+                     Kara - Surcharges: 82.3%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_778077c27bca7e385c33292df5433aa4.setIcon(icon_ca133d900590abe89a97982e6bbf6de0);
+            
+    
+            var marker_c5ed56be596083114b745f9d2733cd56 = L.marker(
+                [6.8999, 0.6244],
+                {
+}
+            ).addTo(marker_cluster_c87a9eaa0c7950f2044acc63264ee99c);
+        
+    
+            var icon_c196928ec7d7a3e339a751c7f3084bf4 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;bolt&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_6ec9df8ee0b150a1b8af2d5ba567c1cd = L.popup({
+  &quot;maxWidth&quot;: 180,
+});
+
+        
+            
+                var html_82d3121e83a21e5264540408cf1d0e5b = $(`&lt;div id=&quot;html_82d3121e83a21e5264540408cf1d0e5b&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Kpalime&lt;/b&gt;&lt;br&gt;Surcharges: 82.9%&lt;br&gt;N: 5,962&lt;/div&gt;`)[0];
+                popup_6ec9df8ee0b150a1b8af2d5ba567c1cd.setContent(html_82d3121e83a21e5264540408cf1d0e5b);
+            
+        
+
+        marker_c5ed56be596083114b745f9d2733cd56.bindPopup(popup_6ec9df8ee0b150a1b8af2d5ba567c1cd)
+        ;
+
+        
+    
+    
+            marker_c5ed56be596083114b745f9d2733cd56.bindTooltip(
+                `&lt;div&gt;
+                     Kpalime - Surcharges: 82.9%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_c5ed56be596083114b745f9d2733cd56.setIcon(icon_c196928ec7d7a3e339a751c7f3084bf4);
+            
+    
+            var marker_eb870c4b737009e29fe802f32a4c998e = L.marker(
+                [6.1375, 1.2123],
+                {
+}
+            ).addTo(marker_cluster_c87a9eaa0c7950f2044acc63264ee99c);
+        
+    
+            var icon_903389f4fe976750472b6629d25a9ef7 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;bolt&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_cec71ddc42199d9637c6dd3f1a83ea7c = L.popup({
+  &quot;maxWidth&quot;: 180,
+});
+
+        
+            
+                var html_7b121f5259effb3f4139793f7ae1d27f = $(`&lt;div id=&quot;html_7b121f5259effb3f4139793f7ae1d27f&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Lome&lt;/b&gt;&lt;br&gt;Surcharges: 81.8%&lt;br&gt;N: 5,795&lt;/div&gt;`)[0];
+                popup_cec71ddc42199d9637c6dd3f1a83ea7c.setContent(html_7b121f5259effb3f4139793f7ae1d27f);
+            
+        
+
+        marker_eb870c4b737009e29fe802f32a4c998e.bindPopup(popup_cec71ddc42199d9637c6dd3f1a83ea7c)
+        ;
+
+        
+    
+    
+            marker_eb870c4b737009e29fe802f32a4c998e.bindTooltip(
+                `&lt;div&gt;
+                     Lome - Surcharges: 81.8%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_eb870c4b737009e29fe802f32a4c998e.setIcon(icon_903389f4fe976750472b6629d25a9ef7);
+            
+    
+            var marker_35720667ae75ab657c02335c7e1dbcd7 = L.marker(
+                [8.9833, 1.1333],
+                {
+}
+            ).addTo(marker_cluster_c87a9eaa0c7950f2044acc63264ee99c);
+        
+    
+            var icon_c53c4f624281a31eb5a071885aaf1a16 = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;bolt&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_b12da4fa5d5b35e2a8f4f9ba2bb0ec72 = L.popup({
+  &quot;maxWidth&quot;: 180,
+});
+
+        
+            
+                var html_432e142b55d3c9eb68a032a8b1fa57e0 = $(`&lt;div id=&quot;html_432e142b55d3c9eb68a032a8b1fa57e0&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Sokode&lt;/b&gt;&lt;br&gt;Surcharges: 82.5%&lt;br&gt;N: 5,812&lt;/div&gt;`)[0];
+                popup_b12da4fa5d5b35e2a8f4f9ba2bb0ec72.setContent(html_432e142b55d3c9eb68a032a8b1fa57e0);
+            
+        
+
+        marker_35720667ae75ab657c02335c7e1dbcd7.bindPopup(popup_b12da4fa5d5b35e2a8f4f9ba2bb0ec72)
+        ;
+
+        
+    
+    
+            marker_35720667ae75ab657c02335c7e1dbcd7.bindTooltip(
+                `&lt;div&gt;
+                     Sokode - Surcharges: 82.5%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_35720667ae75ab657c02335c7e1dbcd7.setIcon(icon_c53c4f624281a31eb5a071885aaf1a16);
+            
+    
+            var marker_f5c4e0b40264ce95c9a4a6166d8ff798 = L.marker(
+                [6.4271, 1.2189],
+                {
+}
+            ).addTo(marker_cluster_c87a9eaa0c7950f2044acc63264ee99c);
+        
+    
+            var icon_6a2acb328c8ef5a9856885a1e46acafd = L.AwesomeMarkers.icon(
+                {
+  &quot;markerColor&quot;: &quot;red&quot;,
+  &quot;iconColor&quot;: &quot;white&quot;,
+  &quot;icon&quot;: &quot;bolt&quot;,
+  &quot;prefix&quot;: &quot;fa&quot;,
+  &quot;extraClasses&quot;: &quot;fa-rotate-0&quot;,
+}
+            );
+        
+    
+        var popup_90c84dd7c33ee9a94c4000f771d57017 = L.popup({
+  &quot;maxWidth&quot;: 180,
+});
+
+        
+            
+                var html_64ffba3aeda648587b336d2494a626e5 = $(`&lt;div id=&quot;html_64ffba3aeda648587b336d2494a626e5&quot; style=&quot;width: 100.0%; height: 100.0%;&quot;&gt;&lt;b&gt;Tsevie&lt;/b&gt;&lt;br&gt;Surcharges: 82.8%&lt;br&gt;N: 5,972&lt;/div&gt;`)[0];
+                popup_90c84dd7c33ee9a94c4000f771d57017.setContent(html_64ffba3aeda648587b336d2494a626e5);
+            
+        
+
+        marker_f5c4e0b40264ce95c9a4a6166d8ff798.bindPopup(popup_90c84dd7c33ee9a94c4000f771d57017)
+        ;
+
+        
+    
+    
+            marker_f5c4e0b40264ce95c9a4a6166d8ff798.bindTooltip(
+                `&lt;div&gt;
+                     Tsevie - Surcharges: 82.8%
+                 &lt;/div&gt;`,
+                {
+  &quot;sticky&quot;: true,
+}
+            );
+        
+    
+                marker_f5c4e0b40264ce95c9a4a6166d8ff798.setIcon(icon_6a2acb328c8ef5a9856885a1e46acafd);
+            
+    
+            marker_cluster_c87a9eaa0c7950f2044acc63264ee99c.addTo(map_6cf22954859cd9f153b79cc6401bd2ba);
+        
+    
+            var layer_control_f183646c2cd70fb9b7695ddf62e07f0e_layers = {
+                base_layers : {
+                    &quot;cartodbpositron&quot; : tile_layer_83c70ea351ea507b082006a648cfbdd4,
+                },
+                overlays :  {
+                    &quot;Surcharges&quot; : marker_cluster_c87a9eaa0c7950f2044acc63264ee99c,
+                },
+            };
+            let layer_control_f183646c2cd70fb9b7695ddf62e07f0e = L.control.layers(
+                layer_control_f183646c2cd70fb9b7695ddf62e07f0e_layers.base_layers,
+                layer_control_f183646c2cd70fb9b7695ddf62e07f0e_layers.overlays,
+                {
+  &quot;position&quot;: &quot;topright&quot;,
+  &quot;collapsed&quot;: true,
+  &quot;autoZIndex&quot;: true,
+}
+            ).addTo(map_6cf22954859cd9f153b79cc6401bd2ba);
+
+        
+    
+            tile_layer_83c70ea351ea507b082006a648cfbdd4.addTo(map_6cf22954859cd9f153b79cc6401bd2ba);
+        
+    
+                marker_4536114a4c3b07034348e0079bdff4b1.setIcon(icon_5c256ce039543bcd5ee6ef4d591d61f5);
+            
+    
+                marker_8fb31731de6423139b9eb5bf26c864a2.setIcon(icon_4e40a272355c1d6d4b0c7300b7288617);
+            
+    
+                marker_778077c27bca7e385c33292df5433aa4.setIcon(icon_ca133d900590abe89a97982e6bbf6de0);
+            
+    
+                marker_c5ed56be596083114b745f9d2733cd56.setIcon(icon_c196928ec7d7a3e339a751c7f3084bf4);
+            
+    
+                marker_eb870c4b737009e29fe802f32a4c998e.setIcon(icon_903389f4fe976750472b6629d25a9ef7);
+            
+    
+                marker_35720667ae75ab657c02335c7e1dbcd7.setIcon(icon_c53c4f624281a31eb5a071885aaf1a16);
+            
+    
+                marker_f5c4e0b40264ce95c9a4a6166d8ff798.setIcon(icon_6a2acb328c8ef5a9856885a1e46acafd);
+            
+    
+            marker_cluster_c87a9eaa0c7950f2044acc63264ee99c.addTo(map_6cf22954859cd9f153b79cc6401bd2ba);
+        
+&lt;/script&gt;
+&lt;/html&gt;" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="04_sql_analysis.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">04 · Analyse SQL du Réseau Électrique</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="06_dash_dashboard.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">06 - Dashboard Professionnel - Guide &amp; Demonstration</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceet-smart-grid-energy-blackout-prediction">CEET Smart Grid - Energy Blackout Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coordonnees-des-villes-togolaises">5.1 Coordonnees des Villes Togolaises</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#agregation-des-donnees-par-ville">5.2 Agregation des donnees par ville</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carte-principale-zones-a-risque">5.3 Carte Principale - Zones a Risque</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap-geographique-intensite-des-blackouts">5.4 Heatmap Geographique - Intensite des Blackouts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#carte-des-surcharges-cluster-de-marqueurs">5.5 Carte des Surcharges - Cluster de Marqueurs</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petema Maleki
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
