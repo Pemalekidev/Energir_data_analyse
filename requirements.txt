@@ -1,0 +1,45 @@
+# ============================================================
+# CEET Smart Grid – Energy Blackout Prediction
+# Requirements
+# ============================================================
+
+# Core Data Science
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.0
+
+# Machine Learning
+scikit-learn==1.4.2
+xgboost==2.0.3
+lightgbm==4.3.0
+catboost==1.2.5
+
+# Deep Learning / Time Series
+statsmodels==0.14.2
+
+# Visualization
+matplotlib==3.8.4
+seaborn==0.13.2
+plotly==5.22.0
+folium==0.16.0
+
+# Dashboard
+dash==2.17.1
+dash-bootstrap-components==1.6.0
+streamlit==1.35.0
+
+# API & Deployment
+fastapi==0.111.0
+uvicorn[standard]==0.29.0
+pydantic==2.7.1
+
+# Database
+# sqlite3 is built-in
+sqlalchemy==2.0.30
+
+# MLOps
+joblib==1.4.2
+
+# Utilities
+python-dotenv==1.0.1
+tqdm==4.66.4

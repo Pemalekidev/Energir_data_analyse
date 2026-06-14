@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_dd42cfec031597b9bcb2799ef2818532 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_dd42cfec031597b9bcb2799ef2818532" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_dd42cfec031597b9bcb2799ef2818532 = L.map(
+                "map_dd42cfec031597b9bcb2799ef2818532",
+                {
+                    center: [8.0, 1.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_19c9bf51f284d31c338a28389cbc0f07 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_19c9bf51f284d31c338a28389cbc0f07.addTo(map_dd42cfec031597b9bcb2799ef2818532);
+        
+    
+            var marker_cluster_9673f5631fb0813cb0f6198441c7de38 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var marker_184e792e7e9f3fd6abdcb1f461e04cd6 = L.marker(
+                [7.5833, 1.1333],
+                {
+}
+            ).addTo(marker_cluster_9673f5631fb0813cb0f6198441c7de38);
+        
+    
+            var icon_44035b6e398e8766450d7b0f430d7ebd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_66a34670471f569bbeb1765b99b96ec9 = L.popup({
+  "maxWidth": 180,
+});
+
+        
+            
+                var html_ede9b4e806b9b8be682104ce27789bf2 = $(`<div id="html_ede9b4e806b9b8be682104ce27789bf2" style="width: 100.0%; height: 100.0%;"><b>Atakpame</b><br>Surcharges: 77.2%<br>N: 5,563</div>`)[0];
+                popup_66a34670471f569bbeb1765b99b96ec9.setContent(html_ede9b4e806b9b8be682104ce27789bf2);
+            
+        
+
+        marker_184e792e7e9f3fd6abdcb1f461e04cd6.bindPopup(popup_66a34670471f569bbeb1765b99b96ec9)
+        ;
+
+        
+    
+    
+            marker_184e792e7e9f3fd6abdcb1f461e04cd6.bindTooltip(
+                `<div>
+                     Atakpame - Surcharges: 77.2%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_184e792e7e9f3fd6abdcb1f461e04cd6.setIcon(icon_44035b6e398e8766450d7b0f430d7ebd);
+            
+    
+            var marker_d6fec326ff5fe90974a75e4304d03aad = L.marker(
+                [10.8623, 0.2061],
+                {
+}
+            ).addTo(marker_cluster_9673f5631fb0813cb0f6198441c7de38);
+        
+    
+            var icon_a380279e24a0a870166e3b796a1f3974 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e6aefda392605a3dda30827d141f3a6c = L.popup({
+  "maxWidth": 180,
+});
+
+        
+            
+                var html_cdedddfcb0432a88201f2e70db816c70 = $(`<div id="html_cdedddfcb0432a88201f2e70db816c70" style="width: 100.0%; height: 100.0%;"><b>Dapaong</b><br>Surcharges: 77.1%<br>N: 5,374</div>`)[0];
+                popup_e6aefda392605a3dda30827d141f3a6c.setContent(html_cdedddfcb0432a88201f2e70db816c70);
+            
+        
+
+        marker_d6fec326ff5fe90974a75e4304d03aad.bindPopup(popup_e6aefda392605a3dda30827d141f3a6c)
+        ;
+
+        
+    
+    
+            marker_d6fec326ff5fe90974a75e4304d03aad.bindTooltip(
+                `<div>
+                     Dapaong - Surcharges: 77.1%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d6fec326ff5fe90974a75e4304d03aad.setIcon(icon_a380279e24a0a870166e3b796a1f3974);
+            
+    
+            var marker_1d90ac13a5e2f713bde8fda6dbac451d = L.marker(
+                [9.5511, 1.1861],
+                {
+}
+            ).addTo(marker_cluster_9673f5631fb0813cb0f6198441c7de38);
+        
+    
+            var icon_4a630b3e9d383ae90e04f347a386dec9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b018792ac5d41e346a86617cc0fe7b37 = L.popup({
+  "maxWidth": 180,
+});
+
+        
+            
+                var html_24ea05562f074ec7663e6de916d9d1e7 = $(`<div id="html_24ea05562f074ec7663e6de916d9d1e7" style="width: 100.0%; height: 100.0%;"><b>Kara</b><br>Surcharges: 76.9%<br>N: 5,528</div>`)[0];
+                popup_b018792ac5d41e346a86617cc0fe7b37.setContent(html_24ea05562f074ec7663e6de916d9d1e7);
+            
+        
+
+        marker_1d90ac13a5e2f713bde8fda6dbac451d.bindPopup(popup_b018792ac5d41e346a86617cc0fe7b37)
+        ;
+
+        
+    
+    
+            marker_1d90ac13a5e2f713bde8fda6dbac451d.bindTooltip(
+                `<div>
+                     Kara - Surcharges: 76.9%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1d90ac13a5e2f713bde8fda6dbac451d.setIcon(icon_4a630b3e9d383ae90e04f347a386dec9);
+            
+    
+            var marker_21885298b935dad0261b31767a126546 = L.marker(
+                [6.8999, 0.6244],
+                {
+}
+            ).addTo(marker_cluster_9673f5631fb0813cb0f6198441c7de38);
+        
+    
+            var icon_5145f622c62117963dbd999b166998d4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dc9b349e6b06b355da203d48f09ab468 = L.popup({
+  "maxWidth": 180,
+});
+
+        
+            
+                var html_2629fdf7544243412ab5f4dd911ad1b1 = $(`<div id="html_2629fdf7544243412ab5f4dd911ad1b1" style="width: 100.0%; height: 100.0%;"><b>Kpalime</b><br>Surcharges: 78.0%<br>N: 5,503</div>`)[0];
+                popup_dc9b349e6b06b355da203d48f09ab468.setContent(html_2629fdf7544243412ab5f4dd911ad1b1);
+            
+        
+
+        marker_21885298b935dad0261b31767a126546.bindPopup(popup_dc9b349e6b06b355da203d48f09ab468)
+        ;
+
+        
+    
+    
+            marker_21885298b935dad0261b31767a126546.bindTooltip(
+                `<div>
+                     Kpalime - Surcharges: 78.0%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_21885298b935dad0261b31767a126546.setIcon(icon_5145f622c62117963dbd999b166998d4);
+            
+    
+            var marker_9b5f29d10b6aabd1616de1c7fd19e595 = L.marker(
+                [6.1375, 1.2123],
+                {
+}
+            ).addTo(marker_cluster_9673f5631fb0813cb0f6198441c7de38);
+        
+    
+            var icon_6c090e0303a97813d8a20a53766d8d79 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc868879c795fd39a38deb3263eda77d = L.popup({
+  "maxWidth": 180,
+});
+
+        
+            
+                var html_984e66ad70e08c5f9ac8319c61337bee = $(`<div id="html_984e66ad70e08c5f9ac8319c61337bee" style="width: 100.0%; height: 100.0%;"><b>Lome</b><br>Surcharges: 77.8%<br>N: 5,570</div>`)[0];
+                popup_cc868879c795fd39a38deb3263eda77d.setContent(html_984e66ad70e08c5f9ac8319c61337bee);
+            
+        
+
+        marker_9b5f29d10b6aabd1616de1c7fd19e595.bindPopup(popup_cc868879c795fd39a38deb3263eda77d)
+        ;
+
+        
+    
+    
+            marker_9b5f29d10b6aabd1616de1c7fd19e595.bindTooltip(
+                `<div>
+                     Lome - Surcharges: 77.8%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9b5f29d10b6aabd1616de1c7fd19e595.setIcon(icon_6c090e0303a97813d8a20a53766d8d79);
+            
+    
+            var marker_d2acfd5a3dc1d9345d2fea28d5615f18 = L.marker(
+                [8.9833, 1.1333],
+                {
+}
+            ).addTo(marker_cluster_9673f5631fb0813cb0f6198441c7de38);
+        
+    
+            var icon_d23b51a0ab13834a30f6a95d30aaf372 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_19252a17e1fe79e4fea6709d0f196ead = L.popup({
+  "maxWidth": 180,
+});
+
+        
+            
+                var html_a550e5eee513af2f28bb748d90d80cff = $(`<div id="html_a550e5eee513af2f28bb748d90d80cff" style="width: 100.0%; height: 100.0%;"><b>Sokode</b><br>Surcharges: 77.6%<br>N: 5,611</div>`)[0];
+                popup_19252a17e1fe79e4fea6709d0f196ead.setContent(html_a550e5eee513af2f28bb748d90d80cff);
+            
+        
+
+        marker_d2acfd5a3dc1d9345d2fea28d5615f18.bindPopup(popup_19252a17e1fe79e4fea6709d0f196ead)
+        ;
+
+        
+    
+    
+            marker_d2acfd5a3dc1d9345d2fea28d5615f18.bindTooltip(
+                `<div>
+                     Sokode - Surcharges: 77.6%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d2acfd5a3dc1d9345d2fea28d5615f18.setIcon(icon_d23b51a0ab13834a30f6a95d30aaf372);
+            
+    
+            var marker_6937c02977ff3a974d0b38501fc24f42 = L.marker(
+                [6.4271, 1.2189],
+                {
+}
+            ).addTo(marker_cluster_9673f5631fb0813cb0f6198441c7de38);
+        
+    
+            var icon_aba3686abbef0697896c49ff403aadd8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "bolt",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b7037a8d095b51b43c68ffd25fd0fdf = L.popup({
+  "maxWidth": 180,
+});
+
+        
+            
+                var html_8b9830f8ee19e18b754b925e6cef1a7e = $(`<div id="html_8b9830f8ee19e18b754b925e6cef1a7e" style="width: 100.0%; height: 100.0%;"><b>Tsevie</b><br>Surcharges: 76.4%<br>N: 5,490</div>`)[0];
+                popup_5b7037a8d095b51b43c68ffd25fd0fdf.setContent(html_8b9830f8ee19e18b754b925e6cef1a7e);
+            
+        
+
+        marker_6937c02977ff3a974d0b38501fc24f42.bindPopup(popup_5b7037a8d095b51b43c68ffd25fd0fdf)
+        ;
+
+        
+    
+    
+            marker_6937c02977ff3a974d0b38501fc24f42.bindTooltip(
+                `<div>
+                     Tsevie - Surcharges: 76.4%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6937c02977ff3a974d0b38501fc24f42.setIcon(icon_aba3686abbef0697896c49ff403aadd8);
+            
+    
+            marker_cluster_9673f5631fb0813cb0f6198441c7de38.addTo(map_dd42cfec031597b9bcb2799ef2818532);
+        
+    
+            var layer_control_5b999fb206eedf5379d2f8bfdd101aa6_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_19c9bf51f284d31c338a28389cbc0f07,
+                },
+                overlays :  {
+                    "Surcharges" : marker_cluster_9673f5631fb0813cb0f6198441c7de38,
+                },
+            };
+            let layer_control_5b999fb206eedf5379d2f8bfdd101aa6 = L.control.layers(
+                layer_control_5b999fb206eedf5379d2f8bfdd101aa6_layers.base_layers,
+                layer_control_5b999fb206eedf5379d2f8bfdd101aa6_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_dd42cfec031597b9bcb2799ef2818532);
+
+        
+</script>
+</html>

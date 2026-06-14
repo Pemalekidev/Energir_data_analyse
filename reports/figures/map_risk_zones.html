@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_123f18f4091993b9fa00101a40d3bc87 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.css"/>
+</head>
+<body>
+    
+    <div style="position:fixed;top:10px;left:50%;transform:translateX(-50%);
+z-index:1000;background:rgba(29,53,87,0.92);border-radius:12px;padding:12px 24px;
+color:white;font-family:Arial;text-align:center;border:2px solid #E63946;">
+<b style="font-size:18px;">CEET Smart Grid - Risque Reseau Electrique Togo</b></div>
+    <div style="position:fixed;bottom:30px;right:20px;z-index:1000;
+background:rgba(29,53,87,0.92);border-radius:10px;padding:12px;color:white;font-size:12px;">
+<b>Niveau de Risque</b><br>
+<span style="color:#E63946;">&#9679;</span> Critique (&ge;75%)<br>
+<span style="color:#F4A261;">&#9679;</span> Eleve (&ge;50%)<br>
+<span style="color:#E9C46A;">&#9679;</span> Modere (&ge;30%)<br>
+<span style="color:#2A9D8F;">&#9679;</span> Faible (&lt;30%)</div>
+    
+            <div class="folium-map" id="map_123f18f4091993b9fa00101a40d3bc87" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_123f18f4091993b9fa00101a40d3bc87 = L.map(
+                "map_123f18f4091993b9fa00101a40d3bc87",
+                {
+                    center: [8.0, 1.1],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 7,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ffc8cd74a3eb39efbe31b9ebeab09067 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_ffc8cd74a3eb39efbe31b9ebeab09067.addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var circle_marker_ab53527a9e464557c61b14b1d6582faf = L.circleMarker(
+                [7.5833, 1.1333],
+                {"bubblingMouseEvents": true, "color": "#E63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E63946", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.784, "stroke": true, "weight": 2}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+        var popup_3c7192431aaea55f2e8337406211b38b = L.popup({
+  "maxWidth": 240,
+});
+
+        
+            
+                var html_77f3c9364c297476a4aef3d81c776e4d = $(`<div id="html_77f3c9364c297476a4aef3d81c776e4d" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;width:220px;padding:8px;'><h4 style='color:#E63946;margin:0;'>Atakpame</h4><hr style='margin:4px 0;'><b>Risque moyen :</b> 94.7% (CRITIQUE)<br><b>Taux blackout :</b> 3.80%<br><b>Nb blackouts :</b> 274<br><b>Taux surcharge :</b> 83.10%<br><b>Delesage total :</b> 103641 MW<br><b>Charge moy. :</b> 310.9 MW</div></div>`)[0];
+                popup_3c7192431aaea55f2e8337406211b38b.setContent(html_77f3c9364c297476a4aef3d81c776e4d);
+            
+        
+
+        circle_marker_ab53527a9e464557c61b14b1d6582faf.bindPopup(popup_3c7192431aaea55f2e8337406211b38b)
+        ;
+
+        
+    
+    
+            circle_marker_ab53527a9e464557c61b14b1d6582faf.bindTooltip(
+                `<div>
+                     Atakpame - Risque: 94.7%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_6f806383d0f00197243d21d2296bbd5b = L.marker(
+                [7.6633000000000004, 1.1333],
+                {
+}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var div_icon_c14f2c9ec954a805d4948c11d417a5a9 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\"\u003eAtakpame\u003c/div\u003e",
+  "iconSize": [80, 20],
+  "className": "empty",
+});
+        
+    
+                marker_6f806383d0f00197243d21d2296bbd5b.setIcon(div_icon_c14f2c9ec954a805d4948c11d417a5a9);
+            
+    
+            var circle_marker_757ae166786be2e514dd9df53d222f5b = L.circleMarker(
+                [10.8623, 0.2061],
+                {"bubblingMouseEvents": true, "color": "#E63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E63946", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.756666666666668, "stroke": true, "weight": 2}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+        var popup_2fc51a1f5d1526ff6c4b55bdd2980630 = L.popup({
+  "maxWidth": 240,
+});
+
+        
+            
+                var html_fad949fb94e0c83350ee541cb08eb8c8 = $(`<div id="html_fad949fb94e0c83350ee541cb08eb8c8" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;width:220px;padding:8px;'><h4 style='color:#E63946;margin:0;'>Dapaong</h4><hr style='margin:4px 0;'><b>Risque moyen :</b> 94.5% (CRITIQUE)<br><b>Taux blackout :</b> 3.70%<br><b>Nb blackouts :</b> 268<br><b>Taux surcharge :</b> 81.80%<br><b>Delesage total :</b> 103042 MW<br><b>Charge moy. :</b> 310.0 MW</div></div>`)[0];
+                popup_2fc51a1f5d1526ff6c4b55bdd2980630.setContent(html_fad949fb94e0c83350ee541cb08eb8c8);
+            
+        
+
+        circle_marker_757ae166786be2e514dd9df53d222f5b.bindPopup(popup_2fc51a1f5d1526ff6c4b55bdd2980630)
+        ;
+
+        
+    
+    
+            circle_marker_757ae166786be2e514dd9df53d222f5b.bindTooltip(
+                `<div>
+                     Dapaong - Risque: 94.5%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_728656e6a1537de1a3ebf15efc5e7de2 = L.marker(
+                [10.9423, 0.2061],
+                {
+}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var div_icon_b542d1f4a95129f0b25942cec9225696 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\"\u003eDapaong\u003c/div\u003e",
+  "iconSize": [80, 20],
+  "className": "empty",
+});
+        
+    
+                marker_728656e6a1537de1a3ebf15efc5e7de2.setIcon(div_icon_b542d1f4a95129f0b25942cec9225696);
+            
+    
+            var circle_marker_1bdd1ac733d54fa622e1ec7c148bc317 = L.circleMarker(
+                [9.5511, 1.1861],
+                {"bubblingMouseEvents": true, "color": "#E63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E63946", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.773666666666664, "stroke": true, "weight": 2}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+        var popup_8bba519acb233a5c395ae4d7b9af876e = L.popup({
+  "maxWidth": 240,
+});
+
+        
+            
+                var html_de708b0aa27725084067f170691c11d2 = $(`<div id="html_de708b0aa27725084067f170691c11d2" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;width:220px;padding:8px;'><h4 style='color:#E63946;margin:0;'>Kara</h4><hr style='margin:4px 0;'><b>Risque moyen :</b> 94.6% (CRITIQUE)<br><b>Taux blackout :</b> 4.50%<br><b>Nb blackouts :</b> 320<br><b>Taux surcharge :</b> 82.30%<br><b>Delesage total :</b> 101475 MW<br><b>Charge moy. :</b> 310.2 MW</div></div>`)[0];
+                popup_8bba519acb233a5c395ae4d7b9af876e.setContent(html_de708b0aa27725084067f170691c11d2);
+            
+        
+
+        circle_marker_1bdd1ac733d54fa622e1ec7c148bc317.bindPopup(popup_8bba519acb233a5c395ae4d7b9af876e)
+        ;
+
+        
+    
+    
+            circle_marker_1bdd1ac733d54fa622e1ec7c148bc317.bindTooltip(
+                `<div>
+                     Kara - Risque: 94.6%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_d0e6c530882f8bc19b34106671485fc0 = L.marker(
+                [9.6311, 1.1861],
+                {
+}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var div_icon_d9313bc834de0d1a4e1908307c034ca6 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\"\u003eKara\u003c/div\u003e",
+  "iconSize": [80, 20],
+  "className": "empty",
+});
+        
+    
+                marker_d0e6c530882f8bc19b34106671485fc0.setIcon(div_icon_d9313bc834de0d1a4e1908307c034ca6);
+            
+    
+            var circle_marker_15e6cb2ca041ef6fc97fdb49523de642 = L.circleMarker(
+                [6.8999, 0.6244],
+                {"bubblingMouseEvents": true, "color": "#E63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E63946", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.7695, "stroke": true, "weight": 2}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+        var popup_0fe585e69fcddee7f453c1274823daf0 = L.popup({
+  "maxWidth": 240,
+});
+
+        
+            
+                var html_425fa88f4992274710d9c8443d6bd5dd = $(`<div id="html_425fa88f4992274710d9c8443d6bd5dd" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;width:220px;padding:8px;'><h4 style='color:#E63946;margin:0;'>Kpalime</h4><hr style='margin:4px 0;'><b>Risque moyen :</b> 94.6% (CRITIQUE)<br><b>Taux blackout :</b> 3.90%<br><b>Nb blackouts :</b> 278<br><b>Taux surcharge :</b> 82.90%<br><b>Delesage total :</b> 103830 MW<br><b>Charge moy. :</b> 310.6 MW</div></div>`)[0];
+                popup_0fe585e69fcddee7f453c1274823daf0.setContent(html_425fa88f4992274710d9c8443d6bd5dd);
+            
+        
+
+        circle_marker_15e6cb2ca041ef6fc97fdb49523de642.bindPopup(popup_0fe585e69fcddee7f453c1274823daf0)
+        ;
+
+        
+    
+    
+            circle_marker_15e6cb2ca041ef6fc97fdb49523de642.bindTooltip(
+                `<div>
+                     Kpalime - Risque: 94.6%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a965daf3825dd96c912cc4ca3f539b4b = L.marker(
+                [6.9799, 0.6244],
+                {
+}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var div_icon_b79ee26c6c41091575db480e2938145e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\"\u003eKpalime\u003c/div\u003e",
+  "iconSize": [80, 20],
+  "className": "empty",
+});
+        
+    
+                marker_a965daf3825dd96c912cc4ca3f539b4b.setIcon(div_icon_b79ee26c6c41091575db480e2938145e);
+            
+    
+            var circle_marker_e125ad4d5cf44cd8b407f19e41325ee1 = L.circleMarker(
+                [6.1375, 1.2123],
+                {"bubblingMouseEvents": true, "color": "#E63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E63946", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.738166666666665, "stroke": true, "weight": 2}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+        var popup_aa84db734c3bc5c2e02f7f8166f55df8 = L.popup({
+  "maxWidth": 240,
+});
+
+        
+            
+                var html_257d1a84502a84105ff7467c389cb220 = $(`<div id="html_257d1a84502a84105ff7467c389cb220" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;width:220px;padding:8px;'><h4 style='color:#E63946;margin:0;'>Lome</h4><hr style='margin:4px 0;'><b>Risque moyen :</b> 94.4% (CRITIQUE)<br><b>Taux blackout :</b> 4.00%<br><b>Nb blackouts :</b> 283<br><b>Taux surcharge :</b> 81.80%<br><b>Delesage total :</b> 101424 MW<br><b>Charge moy. :</b> 309.1 MW</div></div>`)[0];
+                popup_aa84db734c3bc5c2e02f7f8166f55df8.setContent(html_257d1a84502a84105ff7467c389cb220);
+            
+        
+
+        circle_marker_e125ad4d5cf44cd8b407f19e41325ee1.bindPopup(popup_aa84db734c3bc5c2e02f7f8166f55df8)
+        ;
+
+        
+    
+    
+            circle_marker_e125ad4d5cf44cd8b407f19e41325ee1.bindTooltip(
+                `<div>
+                     Lome - Risque: 94.4%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_e533ecdf6e469d341f7deacc893b8619 = L.marker(
+                [6.2175, 1.2123],
+                {
+}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var div_icon_c4e0314847bf7385a2c9ea5addbb090d = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\"\u003eLome\u003c/div\u003e",
+  "iconSize": [80, 20],
+  "className": "empty",
+});
+        
+    
+                marker_e533ecdf6e469d341f7deacc893b8619.setIcon(div_icon_c4e0314847bf7385a2c9ea5addbb090d);
+            
+    
+            var circle_marker_354105455f88e0ff3228eaa01798eecb = L.circleMarker(
+                [8.9833, 1.1333],
+                {"bubblingMouseEvents": true, "color": "#E63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E63946", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.77616666666667, "stroke": true, "weight": 2}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+        var popup_fb2326c3229e3ec3c5f3d1af99e55d00 = L.popup({
+  "maxWidth": 240,
+});
+
+        
+            
+                var html_016782221abbfbff5cb2aa2dcdcdf678 = $(`<div id="html_016782221abbfbff5cb2aa2dcdcdf678" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;width:220px;padding:8px;'><h4 style='color:#E63946;margin:0;'>Sokode</h4><hr style='margin:4px 0;'><b>Risque moyen :</b> 94.7% (CRITIQUE)<br><b>Taux blackout :</b> 3.80%<br><b>Nb blackouts :</b> 265<br><b>Taux surcharge :</b> 82.50%<br><b>Delesage total :</b> 101001 MW<br><b>Charge moy. :</b> 310.4 MW</div></div>`)[0];
+                popup_fb2326c3229e3ec3c5f3d1af99e55d00.setContent(html_016782221abbfbff5cb2aa2dcdcdf678);
+            
+        
+
+        circle_marker_354105455f88e0ff3228eaa01798eecb.bindPopup(popup_fb2326c3229e3ec3c5f3d1af99e55d00)
+        ;
+
+        
+    
+    
+            circle_marker_354105455f88e0ff3228eaa01798eecb.bindTooltip(
+                `<div>
+                     Sokode - Risque: 94.7%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1a99a837b9c1fe2c7943982bcd94521a = L.marker(
+                [9.0633, 1.1333],
+                {
+}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var div_icon_e673cca8af65a134e8c1f61c8585244d = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\"\u003eSokode\u003c/div\u003e",
+  "iconSize": [80, 20],
+  "className": "empty",
+});
+        
+    
+                marker_1a99a837b9c1fe2c7943982bcd94521a.setIcon(div_icon_e673cca8af65a134e8c1f61c8585244d);
+            
+    
+            var circle_marker_681a16da228e7546a1cda2f1a071357f = L.circleMarker(
+                [6.4271, 1.2189],
+                {"bubblingMouseEvents": true, "color": "#E63946", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#E63946", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 25.778166666666664, "stroke": true, "weight": 2}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+        var popup_b525dc0236254cea9b94f9f6d08b138e = L.popup({
+  "maxWidth": 240,
+});
+
+        
+            
+                var html_d21d06ac33e4765d7bf5c6bb50f19687 = $(`<div id="html_d21d06ac33e4765d7bf5c6bb50f19687" style="width: 100.0%; height: 100.0%;"><div style='font-family:Arial;width:220px;padding:8px;'><h4 style='color:#E63946;margin:0;'>Tsevie</h4><hr style='margin:4px 0;'><b>Risque moyen :</b> 94.7% (CRITIQUE)<br><b>Taux blackout :</b> 4.00%<br><b>Nb blackouts :</b> 287<br><b>Taux surcharge :</b> 82.80%<br><b>Delesage total :</b> 104220 MW<br><b>Charge moy. :</b> 311.1 MW</div></div>`)[0];
+                popup_b525dc0236254cea9b94f9f6d08b138e.setContent(html_d21d06ac33e4765d7bf5c6bb50f19687);
+            
+        
+
+        circle_marker_681a16da228e7546a1cda2f1a071357f.bindPopup(popup_b525dc0236254cea9b94f9f6d08b138e)
+        ;
+
+        
+    
+    
+            circle_marker_681a16da228e7546a1cda2f1a071357f.bindTooltip(
+                `<div>
+                     Tsevie - Risque: 94.7%
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_856b65e55af5189d16f5968d56492af4 = L.marker(
+                [6.5071, 1.2189],
+                {
+}
+            ).addTo(map_123f18f4091993b9fa00101a40d3bc87);
+        
+    
+            var div_icon_1017a0f235f7d232a654767ead0c6795 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;color:white;font-weight:bold;text-shadow:1px 1px 2px black;\"\u003eTsevie\u003c/div\u003e",
+  "iconSize": [80, 20],
+  "className": "empty",
+});
+        
+    
+                marker_856b65e55af5189d16f5968d56492af4.setIcon(div_icon_1017a0f235f7d232a654767ead0c6795);
+            
+    
+            var tile_layer_3113ccb4aac2cf6b924fa85f17220f71 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detect_retina": false, "max_native_zoom": 19, "max_zoom": 19, "min_zoom": 0, "no_wrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+            var mini_map_dd4f2c70950c3af9a36a4344d47f75e5 = new L.Control.MiniMap(
+                tile_layer_3113ccb4aac2cf6b924fa85f17220f71,
+                {
+  "position": "bottomleft",
+  "width": 150,
+  "height": 150,
+  "collapsedWidth": 25,
+  "collapsedHeight": 25,
+  "zoomLevelOffset": -5,
+  "centerFixed": false,
+  "zoomAnimation": false,
+  "toggleDisplay": true,
+  "autoToggleDisplay": false,
+  "minimized": false,
+}
+            );
+            map_123f18f4091993b9fa00101a40d3bc87.addControl(mini_map_dd4f2c70950c3af9a36a4344d47f75e5);
+        
+</script>
+</html>
