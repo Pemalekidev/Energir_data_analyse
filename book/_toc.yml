@@ -3,7 +3,6 @@
 
 format: jb-book
 root: intro
-
 chapters:
   - file: 01_data_collection
   - file: 02_data_cleaning
