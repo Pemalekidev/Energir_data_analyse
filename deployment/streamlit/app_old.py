@@ -7,7 +7,6 @@ import sys
 import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
-import sqlite3
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -46,27 +45,9 @@ st.markdown("""
 # ─── Chargement des données ───────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    base_dir = Path(__file__).parent.parent.parent
-
-    # 1. Essai prioritaire : base de données SQLite
-    db_path = base_dir / "data" / "processed" / "ceet_smartgrid.db"
-    if db_path.exists():
-        try:
-            conn = sqlite3.connect(db_path)
-            df = pd.read_sql_query("SELECT * FROM grid_readings", conn, parse_dates=["datetime"])
-            conn.close()
-            if "load_ratio" not in df.columns:
-                df["load_ratio"] = df["total_load_mw"] / df["available_power_mw"].replace(0, np.nan)
-            if "power_margin" not in df.columns:
-                df["power_margin"] = df["available_power_mw"] - df["total_load_mw"]
-            return df
-        except Exception as e:
-            st.warning(f"Erreur lors de la lecture de la base SQLite : {e}")
-
-    # 2. Fallback : fichiers CSV
     paths = [
-        base_dir / "data" / "processed" / "ceet_processed.csv",
-        base_dir / "data" / "raw" / "ceet_togo_smartgrid_dataset.csv",
+        Path(__file__).parent.parent.parent / "data" / "processed" / "ceet_processed.csv",
+        Path(__file__).parent.parent.parent / "data" / "raw" / "ceet_togo_smartgrid_dataset.csv",
     ]
     for p in paths:
         if p.exists():
@@ -76,7 +57,6 @@ def load_data():
             if "power_margin" not in df.columns:
                 df["power_margin"] = df["available_power_mw"] - df["total_load_mw"]
             return df
-
     return pd.DataFrame()
 
 df = load_data()
@@ -130,7 +110,7 @@ if page == " Accueil":
     """, unsafe_allow_html=True)
 
     if df.empty:
-        st.error("Données non trouvées. Vérifiez que data/processed/ceet_smartgrid.db (table grid_readings) ou les CSV sont présents dans le repo.")
+        st.error("Données non trouvées. Lancez d'abord data_preprocessing.py")
         st.stop()
 
     dff = get_filtered_df()
