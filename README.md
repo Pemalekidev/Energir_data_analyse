@@ -126,7 +126,7 @@ Cibles         : blackout, overload, outage_risk, load_shedding_mw
 
 ---
 
-## 🤖 Modèles Machine Learning
+##  Modèles Machine Learning
 
 ### Classification (Blackout / Surcharge)
 
