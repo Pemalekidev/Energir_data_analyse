@@ -1,0 +1,1133 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>01 · Collecte et Ingestion des Données &#8212; Analyse des risques de panne du réseau électrique</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '01_data_collection';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="02 · Nettoyage Avancé des Données" href="02_data_cleaning.html" />
+    <link rel="prev" title="Bienvenue" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Analyse des risques de panne du réseau électrique - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Analyse des risques de panne du réseau électrique - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Bienvenue
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">01 · Collecte et Ingestion des Données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_data_cleaning.html">02 · Nettoyage Avancé des Données</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_eda_visualization.html">03 · Analyse Exploratoire des Données (EDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_sql_analysis.html">04 · Analyse SQL du Réseau Électrique</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_folium_map.html">05 - Cartographie Interactive - Reseau Electrique du Togo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_dash_dashboard.html">06 - Dashboard Professionnel - Guide &amp; Demonstration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_predictive_modeling.html">07 · Modélisation Prédictive — Machine Learning &amp; Séries Temporelles</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2F01_data_collection.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/01_data_collection.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>01 · Collecte et Ingestion des Données</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceet-smart-grid-energy-blackout-prediction">CEET Smart Grid – Energy Blackout Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chargement-du-dataset">1.1 Chargement du Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-la-qualite-des-donnees">1.2 Analyse de la Qualité des Données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apercu-des-variables-categorielles">1.3 Aperçu des Variables Catégorielles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sauvegarde-du-dataset-brut-copie-de-travail">1.4 Sauvegarde du Dataset Brut (copie de travail)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="collecte-et-ingestion-des-donnees">
+<h1>01 · Collecte et Ingestion des Données<a class="headerlink" href="#collecte-et-ingestion-des-donnees" title="Permalink to this heading">#</a></h1>
+<section id="ceet-smart-grid-energy-blackout-prediction">
+<h2>CEET Smart Grid – Energy Blackout Prediction<a class="headerlink" href="#ceet-smart-grid-energy-blackout-prediction" title="Permalink to this heading">#</a></h2>
+<p><strong>Objectif :</strong> Charger, inspecter et comprendre le dataset du réseau électrique togolais.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span><span class="o">,</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;../src&#39;</span><span class="p">)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Chemins</span>
+<span class="n">RAW</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data/raw/ceet_togo_smartgrid_dataset.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fichier : </span><span class="si">{</span><span class="n">RAW</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Taille  : </span><span class="si">{</span><span class="n">RAW</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1e6</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Mo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fichier : ..\data\raw\ceet_togo_smartgrid_dataset.csv
+Taille  : 8.40 Mo
+</pre></div>
+</div>
+</div>
+</div>
+<section id="chargement-du-dataset">
+<h3>1.1 Chargement du Dataset<a class="headerlink" href="#chargement-du-dataset" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">RAW</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape   : </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Colonnes: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape   : (50000, 25)
+Colonnes: [&#39;datetime&#39;, &#39;region&#39;, &#39;city&#39;, &#39;temperature&#39;, &#39;humidity&#39;, &#39;season&#39;, &#39;hour&#39;, &#39;industrial_load&#39;, &#39;residential_load&#39;, &#39;commercial_load&#39;, &#39;total_load_mw&#39;, &#39;available_power_mw&#39;, &#39;renewable_power_mw&#39;, &#39;transformer_temp&#39;, &#39;voltage&#39;, &#39;frequency&#39;, &#39;event&#39;, &#39;outage_risk&#39;, &#39;overload&#39;, &#39;blackout&#39;, &#39;load_shedding_mw&#39;, &#39;energy_price&#39;, &#39;fuel_cost&#39;, &#39;population_density&#39;, &#39;smart_meter_count&#39;]
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datetime</th>
+      <th>region</th>
+      <th>city</th>
+      <th>temperature</th>
+      <th>humidity</th>
+      <th>season</th>
+      <th>hour</th>
+      <th>industrial_load</th>
+      <th>residential_load</th>
+      <th>commercial_load</th>
+      <th>...</th>
+      <th>frequency</th>
+      <th>event</th>
+      <th>outage_risk</th>
+      <th>overload</th>
+      <th>blackout</th>
+      <th>load_shedding_mw</th>
+      <th>energy_price</th>
+      <th>fuel_cost</th>
+      <th>population_density</th>
+      <th>smart_meter_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2020-01-01 00:00:00</td>
+      <td>Lome</td>
+      <td>Sokode</td>
+      <td>34.99</td>
+      <td>63.87</td>
+      <td>Seche</td>
+      <td>0</td>
+      <td>129.08</td>
+      <td>104.70</td>
+      <td>73.07</td>
+      <td>...</td>
+      <td>49.59</td>
+      <td>Match de Football</td>
+      <td>100.00</td>
+      <td>1</td>
+      <td>0</td>
+      <td>27.35</td>
+      <td>108.97</td>
+      <td>581.41</td>
+      <td>761</td>
+      <td>6713</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2020-01-01 01:00:00</td>
+      <td>Lome</td>
+      <td>Lome</td>
+      <td>41.14</td>
+      <td>40.05</td>
+      <td>Seche</td>
+      <td>1</td>
+      <td>102.76</td>
+      <td>72.78</td>
+      <td>62.52</td>
+      <td>...</td>
+      <td>49.95</td>
+      <td>Event Politique</td>
+      <td>91.47</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13.83</td>
+      <td>83.23</td>
+      <td>732.44</td>
+      <td>2245</td>
+      <td>8388</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2020-01-01 02:00:00</td>
+      <td>Centrale</td>
+      <td>Kpalime</td>
+      <td>42.05</td>
+      <td>49.02</td>
+      <td>Seche</td>
+      <td>2</td>
+      <td>137.22</td>
+      <td>65.28</td>
+      <td>56.81</td>
+      <td>...</td>
+      <td>50.47</td>
+      <td>Pas evenement</td>
+      <td>100.00</td>
+      <td>1</td>
+      <td>1</td>
+      <td>14.57</td>
+      <td>122.78</td>
+      <td>1285.61</td>
+      <td>1808</td>
+      <td>1494</td>
+    </tr>
+  </tbody>
+</table>
+<p>3 rows × 25 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Types de données ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Statistiques descriptives ===&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== Types de données ===
+datetime              datetime64[ns]
+region                        object
+city                          object
+temperature                  float64
+humidity                     float64
+season                        object
+hour                           int64
+industrial_load              float64
+residential_load             float64
+commercial_load              float64
+total_load_mw                float64
+available_power_mw           float64
+renewable_power_mw           float64
+transformer_temp             float64
+voltage                      float64
+frequency                    float64
+event                         object
+outage_risk                  float64
+overload                       int64
+blackout                       int64
+load_shedding_mw             float64
+energy_price                 float64
+fuel_cost                    float64
+population_density             int64
+smart_meter_count              int64
+dtype: object
+
+=== Statistiques descriptives ===
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datetime</th>
+      <th>temperature</th>
+      <th>humidity</th>
+      <th>hour</th>
+      <th>industrial_load</th>
+      <th>residential_load</th>
+      <th>commercial_load</th>
+      <th>total_load_mw</th>
+      <th>available_power_mw</th>
+      <th>renewable_power_mw</th>
+      <th>...</th>
+      <th>voltage</th>
+      <th>frequency</th>
+      <th>outage_risk</th>
+      <th>overload</th>
+      <th>blackout</th>
+      <th>load_shedding_mw</th>
+      <th>energy_price</th>
+      <th>fuel_cost</th>
+      <th>population_density</th>
+      <th>smart_meter_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>50000</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>...</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+      <td>50000.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2022-11-07 15:30:00</td>
+      <td>30.21</td>
+      <td>67.33</td>
+      <td>11.50</td>
+      <td>119.96</td>
+      <td>89.99</td>
+      <td>59.90</td>
+      <td>310.33</td>
+      <td>260.02</td>
+      <td>22.55</td>
+      <td>...</td>
+      <td>219.94</td>
+      <td>50.00</td>
+      <td>94.61</td>
+      <td>0.82</td>
+      <td>0.04</td>
+      <td>14.37</td>
+      <td>139.70</td>
+      <td>999.31</td>
+      <td>2522.47</td>
+      <td>5038.61</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2020-01-01 00:00:00</td>
+      <td>19.96</td>
+      <td>40.00</td>
+      <td>0.00</td>
+      <td>2.44</td>
+      <td>-2.82</td>
+      <td>-7.43</td>
+      <td>117.63</td>
+      <td>178.19</td>
+      <td>5.00</td>
+      <td>...</td>
+      <td>189.32</td>
+      <td>48.72</td>
+      <td>50.40</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>80.00</td>
+      <td>500.00</td>
+      <td>50.00</td>
+      <td>100.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2021-06-04 19:45:00</td>
+      <td>27.28</td>
+      <td>53.44</td>
+      <td>5.00</td>
+      <td>99.80</td>
+      <td>70.51</td>
+      <td>49.70</td>
+      <td>275.82</td>
+      <td>246.51</td>
+      <td>13.76</td>
+      <td>...</td>
+      <td>214.59</td>
+      <td>49.80</td>
+      <td>90.66</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>7.21</td>
+      <td>109.58</td>
+      <td>750.23</td>
+      <td>1289.00</td>
+      <td>2565.00</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2022-11-07 15:30:00</td>
+      <td>29.17</td>
+      <td>67.19</td>
+      <td>11.00</td>
+      <td>120.10</td>
+      <td>86.37</td>
+      <td>59.94</td>
+      <td>308.47</td>
+      <td>260.02</td>
+      <td>22.52</td>
+      <td>...</td>
+      <td>219.94</td>
+      <td>50.00</td>
+      <td>99.37</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>14.74</td>
+      <td>139.60</td>
+      <td>997.94</td>
+      <td>2508.00</td>
+      <td>5036.00</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2024-04-11 11:15:00</td>
+      <td>32.82</td>
+      <td>81.19</td>
+      <td>17.00</td>
+      <td>140.09</td>
+      <td>105.20</td>
+      <td>70.05</td>
+      <td>343.00</td>
+      <td>273.49</td>
+      <td>31.40</td>
+      <td>...</td>
+      <td>225.33</td>
+      <td>50.20</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>0.00</td>
+      <td>22.37</td>
+      <td>169.84</td>
+      <td>1248.62</td>
+      <td>3754.00</td>
+      <td>7520.25</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2025-09-14 07:00:00</td>
+      <td>47.08</td>
+      <td>95.00</td>
+      <td>23.00</td>
+      <td>256.84</td>
+      <td>221.59</td>
+      <td>122.31</td>
+      <td>551.42</td>
+      <td>341.67</td>
+      <td>40.00</td>
+      <td>...</td>
+      <td>251.52</td>
+      <td>51.43</td>
+      <td>100.00</td>
+      <td>1.00</td>
+      <td>1.00</td>
+      <td>30.00</td>
+      <td>199.99</td>
+      <td>1499.95</td>
+      <td>5000.00</td>
+      <td>10000.00</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>NaN</td>
+      <td>4.03</td>
+      <td>15.93</td>
+      <td>6.92</td>
+      <td>29.94</td>
+      <td>28.58</td>
+      <td>15.08</td>
+      <td>50.62</td>
+      <td>19.94</td>
+      <td>10.13</td>
+      <td>...</td>
+      <td>7.96</td>
+      <td>0.30</td>
+      <td>7.52</td>
+      <td>0.38</td>
+      <td>0.19</td>
+      <td>9.33</td>
+      <td>34.78</td>
+      <td>287.97</td>
+      <td>1428.35</td>
+      <td>2858.59</td>
+    </tr>
+  </tbody>
+</table>
+<p>8 rows × 21 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="analyse-de-la-qualite-des-donnees">
+<h3>1.2 Analyse de la Qualité des Données<a class="headerlink" href="#analyse-de-la-qualite-des-donnees" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Valeurs manquantes</span>
+<span class="n">missing</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">missing_pct</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">missing_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Manquantes&#39;</span><span class="p">:</span> <span class="n">missing</span><span class="p">,</span> <span class="s1">&#39;Pourcentage (%)&#39;</span><span class="p">:</span> <span class="n">missing_pct</span><span class="p">})</span>
+<span class="n">missing_df</span><span class="p">[</span><span class="n">missing_df</span><span class="p">[</span><span class="s1">&#39;Manquantes&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Manquantes</th>
+      <th>Pourcentage (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Doublons</span>
+<span class="n">n_dup</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Doublons : </span><span class="si">{</span><span class="n">n_dup</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Distribution des cibles</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Distribution BLACKOUT ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;blackout&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Distribution OVERLOAD ===&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;overload&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Doublons : 0
+
+=== Distribution BLACKOUT ===
+blackout
+0    0.96
+1    0.04
+Name: proportion, dtype: float64
+
+=== Distribution OVERLOAD ===
+overload
+1    0.825
+0    0.175
+Name: proportion, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="apercu-des-variables-categorielles">
+<h3>1.3 Aperçu des Variables Catégorielles<a class="headerlink" href="#apercu-des-variables-categorielles" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;region&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;season&#39;</span><span class="p">,</span> <span class="s1">&#39;event&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cat_cols</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">col</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="si">}</span><span class="s2"> valeurs uniques):&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>REGION (6 valeurs uniques):
+region
+Plateaux    8509
+Centrale    8397
+Savanes     8351
+Maritime    8270
+Lome        8237
+Kara        8236
+Name: count, dtype: int64
+
+CITY (7 valeurs uniques):
+city
+Dapaong     7258
+Tsevie      7213
+Kpalime     7193
+Atakpame    7164
+Lome        7085
+Sokode      7045
+Kara        7042
+Name: count, dtype: int64
+
+SEASON (2 valeurs uniques):
+season
+Pluvieuse    34136
+Seche        15864
+Name: count, dtype: int64
+
+EVENT (5 valeurs uniques):
+event
+Pas evenement        10065
+Event Politique      10046
+Concert               9979
+Match de Football     9964
+Festivale             9946
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plage temporelle</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Période  : </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="si">}</span><span class="s2"> → </span><span class="si">{</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Durée    : </span><span class="si">{</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">.</span><span class="n">days</span><span class="si">}</span><span class="s2"> jours&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fréquence: Horaire (</span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> lectures)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Période  : 2020-01-01 00:00:00 → 2025-09-14 07:00:00
+Durée    : 2083 jours
+Fréquence: Horaire (50000 lectures)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sauvegarde-du-dataset-brut-copie-de-travail">
+<h3>1.4 Sauvegarde du Dataset Brut (copie de travail)<a class="headerlink" href="#sauvegarde-du-dataset-brut-copie-de-travail" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="n">dest</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data/raw/ceet_togo_smartgrid_dataset.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dataset brut disponible : </span><span class="si">{</span><span class="n">dest</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Collecte terminée prêt pour le nettoyage (02_data_cleaning.ipynb)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset brut disponible : True
+
+ Collecte terminée prêt pour le nettoyage (02_data_cleaning.ipynb)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bienvenue</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="02_data_cleaning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">02 · Nettoyage Avancé des Données</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ceet-smart-grid-energy-blackout-prediction">CEET Smart Grid – Energy Blackout Prediction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chargement-du-dataset">1.1 Chargement du Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyse-de-la-qualite-des-donnees">1.2 Analyse de la Qualité des Données</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#apercu-des-variables-categorielles">1.3 Aperçu des Variables Catégorielles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sauvegarde-du-dataset-brut-copie-de-travail">1.4 Sauvegarde du Dataset Brut (copie de travail)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Petema Maleki
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
